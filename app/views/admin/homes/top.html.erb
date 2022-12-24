@@ -1,0 +1,109 @@
+<div>
+  <%= flash[:notice] %>
+<div>
+<br>
+
+<div class="container">
+
+  <div class="row">
+
+    <div class="col-md-5">
+      <h4 class="bg-warning text-center">商品新規登録</h4>
+      <br>
+      <h4>
+        <% if @item.errors.any? %>
+        <%= @item.errors.count %>errors prohibited this obj from being saved:
+      </h4>
+      <ul>
+        <% @item.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+      <% end %>
+
+
+      <%= form_with model: @item, url: '/admin/items', method: :post do |f| %>
+       <table class="table table-borderless">
+        <tr>
+          <td style="font-size:12px">商品画像</td>
+          <td style="font-size:12px"><%= f.file_field :image, accept: "image/*" %></td>
+        </tr>
+
+        <tr>
+          <td style="font-size:12px">商品名</td>
+          <td style="font-size:12px"><%= f.text_field :name, placeholder: "商品名", :size=>"20" %></td>
+        </tr>
+
+        <tr>
+          <td style="font-size:12px ">商品説明</td>
+          <td style="font-size:12px"><%= f.text_area :introduction, placeholder: "ここに説明文を記述します",:size=>"20x7" %></td>
+        </tr>
+
+        <tr>
+          <td style="font-size:12px ">税抜価格</td>
+          <td style="font-size:12px"><%= f.text_field :price, placeholder: "1000", :size=>"20"%>円</td>
+        </tr>
+
+        <td></td>
+        <td class="text-center"><%= f.submit "新規登録", class:"btn btn-success" %></td>
+       </table>
+      <% end %>
+    </div>
+
+    <div class="col-md-7">
+      <h4 class="font-weight-bold">新着商品<small>（会員ページ表示中商品）</small></h4>
+
+          <div class="item-wrap1">
+            <% @items_desc = Item.order(created_at: :desc).limit(4).each do |item| %>
+              <span class="item-box font-weight-bold">
+                <%= link_to admin_item_path(item.id) do %>
+                  <% if item.image.present? %>
+                    <%= image_tag item.image, size: "150x100" %>
+                  <% else %>
+                    <%= image_tag 'default-image.jpg', size: "150x100" %>
+                  <% end %>
+                <% end %>
+                <div class="item-comment">
+                  <span class="item-body"><%= item.name %></span><br>
+                  <span class="item-body", style="font-size:12px"><%= item.introduction %></span><br>
+                  <span class="item-title", style="font-size:12px">¥<%= item.price.to_s(:delimited) %></span>
+                </div>
+              </span>
+            <% end %>
+         </div>
+
+         </br>
+
+         <div>
+           <table class="table table-hover table-inverse">
+            <tr style="background:#dad7d7;">
+              <th width="150"></th>
+              <th width="200">登録日</th>
+              <th width="400">商品名</th>
+              <th width="200">税込価格</th>
+              <th width="600">商品説明</th>
+            </tr>
+
+            <% @items.order(created_at: :desc).each do |item| %>
+              <tr>
+                <td>
+                  <%= link_to admin_item_path(item.id) do %>
+                    <% if item.image.present? %>
+                      <%= image_tag item.image, size: "80x50" %>
+                    <% else %>
+                      <%= image_tag 'default-image.jpg', size: "80x50" %>
+                    <% end %>
+                  <% end %>
+                </td>
+                <td><%= item.created_at.strftime("%Y/%m/%d") %></td>
+                <td><%= item.name %></td>
+                <td>¥<%= item.price.to_s(:delimited) %></td>
+                <td><%= item.introduction %></td>
+               </tr>
+            <% end %>
+          </table>
+        </div>
+
+    </div>
+  </div>
+</div>

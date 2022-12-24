@@ -13,3 +13,29 @@
  *= require_tree .
  *= require_self
  */
+
+.top {
+  position: relative;
+}
+
+.top_resizeimage img {
+  width: 100%;
+  opacity: 0.6;
+}
+
+.top_text {
+  color: black; /* 文字色 */
+  font-size: 24px; /* 文字の大きさ */
+  font-weight: bold;
+  position: absolute;
+  left: 50%;
+  top: 20%;
+}
+
+
+.item-wrap1 {
+  display: flex;
+  justify-content: space-around;
+}
+
+
