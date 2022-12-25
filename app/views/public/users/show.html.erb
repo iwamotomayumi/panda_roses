@@ -1,2 +1,76 @@
-<h1>Public::Users#show</h1>
-<p>Find me in app/views/public/users/show.html.erb</p>
+<div>
+  <%= flash[:notice] %>
+<div>
+<br>
+
+<div class="container">
+  <div class="row">
+
+    <div class="col-md-5">
+      <h4 class="bg-warning text-center">会員情報</h4>
+        <span class="item-box font-weight-bold">
+
+          <%= image_tag @user.get_profile_image(100,100), class:"rounded-circle" %>
+          </br>
+          <span><%= @user.last_name %><%= @user.first_name %></span><br>
+          <span><%= @user.introduction %></span>
+          <br>
+        </span>
+      <%= link_to "編集する", edit_user_path(current_user), class:"btn btn-success" %>
+      </br>
+      </br>
+      <h4>
+        <% if @user.errors.any? %>
+        <%= @user.errors.count %>errors prohibited this obj from being saved:
+      </h4>
+      <ul>
+        <% @user.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+      <% end %>
+
+
+      <%= form_with model: @post_image, url: '/post_images', method: :post  do |f| %>
+       <table class="table table-border">
+        <tr>
+          <td style="font-size:12px">投稿画像</td>
+          <td style="font-size:12px"><%= f.file_field :image, accept: "image/*" %></td>
+        </tr>
+
+        <tr>
+          <td style="font-size:12px ">タイトル</td>
+          <td style="font-size:12px"><%= f.text_field :title, placeholder: "タイトル", :size=>"20"%></td>
+        </tr>
+        <tr>
+          <td style="font-size:12px">投稿説明</td>
+          <td style="font-size:12px"><%= f.text_area :caption, placeholder: "投稿文", :size=>"40x10" %></td>
+        </tr>
+        <tr>
+          <td><%= f.submit "投稿する", class:"btn btn-success" %></td>
+          <td></td>
+        </tr>
+       </table>
+      <% end %>
+    </div>
+
+     <div class="col-md-7">
+      <h4 class="font-weight-bold">投稿履歴</h4>
+
+          <div class="post_images-wrap">
+            <% @post_images_desc = PostImage.order(created_at: :desc).each do |post_image| %>
+              <span class="item-box font-weight-bold">
+                <%= link_to post_image_path(post_image.id) do %>
+                    <%= image_tag post_image.get_image(100,100) %>
+                <% end %>
+                <div class="post_image-comment">
+                  <span class="post_image-body", style="font-size:12px"><%= post_image.created_at.strftime("%Y/%m/%d") %></span><br>
+                  <span class="post_image-body"><%= post_image.title %></span><br>
+                  <span class="post_image-body", style="font-size:12px"><%= post_image.caption %></span><br>
+                </div>
+              </span>
+            <% end %>
+         </div>
+    </div>
+  </div>
+</div>

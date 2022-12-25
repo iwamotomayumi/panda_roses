@@ -1,2 +1,59 @@
-<h1>Public::Users#edit</h1>
-<p>Find me in app/views/public/users/edit.html.erb</p>
+<div>
+  <%= flash[:notice] %>
+<div>
+
+<br>
+
+  <div class="container">
+  <div class="row-12">
+    <div class="px-3 mr-auto">
+
+    <div class="col-3 text-center">
+      <h4 class="bg-warning">会員情報編集</h4>
+    </div>
+
+    <%= form_with model: @user, url: user_path(@user.id), method: :patch do |f| %>
+      <table class="lb-5">
+
+        <tr>
+          <td width="30%" height="40">会員画像</td>
+          <td><%= f.file_field :profile_image, accept: "image/*" %></td>
+        </tr>
+
+        <tr>
+          <td class="d-flex align-items-start"　width="30%" height="40">プロフィール</td>
+          <td><%= f.text_area :introduction, :size=>"35x7" %></td>
+        </tr>
+
+        <tr>
+          <td width="30%" height="40">氏名</td>
+          <td><%= f.text_field :last_name %>&nbsp;&nbsp;&nbsp;&nbsp;
+              <%= f.text_field :first_name %></td>
+        </tr>
+
+        <tr>
+          <td width="30%" height="40">フリガナ</td>
+          <td><%= f.text_field :last_name_kana %>&nbsp;&nbsp;&nbsp;&nbsp;
+              <%= f.text_field :first_name_kana %></td>
+        </tr>
+
+        <tr>
+          <td width="30%" height="40">メールアドレス</td>
+          <td><%= f.text_field :email %></td>
+        </tr>
+
+        <tr>
+          <td width="30%" height="40">電話番号</td>
+          <td><%= f.text_field :telephone_number %></td>
+        </tr>
+
+        <tr>
+          <td width="30%" height="70"></td>
+          <td><%= f.submit "編集内容を保存", class:"btn btn-success" %></td>
+          <td><%= link_to "退会する", users_unsubscribe_path, class:"btn btn-danger" %></td>
+
+      </table>
+    <% end %>
+   </div>
+  </div>
+ </div>

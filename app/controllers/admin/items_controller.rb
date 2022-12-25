@@ -9,7 +9,7 @@ class Admin::ItemsController < ApplicationController
       redirect_to admin_root_path
     else
       flash[:notice] = "必要事項を入力して下さい"
-      render :top
+      redirect_to admin_root_path
     end
   end
 
@@ -18,9 +18,22 @@ class Admin::ItemsController < ApplicationController
   end
 
   def show
+    @item = Item.find(params[:id])
   end
 
   def edit
+    @item = Item.find(params[:id])
+  end
+
+  def update
+    @item = Item.find(params[:id])
+    if @item.update(item_params)
+    flash[:notice] = "変更を保存しました"
+    redirect_to admin_item_path(@item.id)
+    else
+       flash[:notice] = "変更内容を入力して下さい"
+      render :edit
+    end
   end
 
 

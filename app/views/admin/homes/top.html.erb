@@ -51,7 +51,7 @@
     </div>
 
     <div class="col-md-7">
-      <h4 class="font-weight-bold">新着商品<small>（会員ページ表示中商品）</small></h4>
+      <h4 class="font-weight-bold">新商品<small>（会員ページ表示中商品）</small></h4>
 
           <div class="item-wrap1">
             <% @items_desc = Item.order(created_at: :desc).limit(4).each do |item| %>
@@ -80,7 +80,10 @@
               <th width="150"></th>
               <th width="200">登録日</th>
               <th width="400">商品名</th>
-              <th width="200">税込価格</th>
+              <th width="250">税込価格
+                  </br>
+                  <small>（税抜価格）</small>
+              </th>
               <th width="600">商品説明</th>
             </tr>
 
@@ -97,11 +100,15 @@
                 </td>
                 <td><%= item.created_at.strftime("%Y/%m/%d") %></td>
                 <td><%= item.name %></td>
-                <td>¥<%= item.price.to_s(:delimited) %></td>
+                <td>¥<%= item.add_tax_price.to_s(:delimited) %>
+                    </br>
+                    <small>(¥<%= item.price.to_s(:delimited) %>)</small>
+                </td>
                 <td><%= item.introduction %></td>
                </tr>
             <% end %>
           </table>
+          <%= paginate @items %>
         </div>
 
     </div>

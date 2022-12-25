@@ -3,7 +3,7 @@
     <p class="top_resizeimage">
        <%= image_tag('micheile-dot-com-KsV60CAazE0-unsplash') %>
     </p>
-    <h3 class="top_text">
+    <span class="top_text">
         <big>🐼panda_roses🌹ハンドメイドのお店のサイトです！</big></br>
         </br>
         <strong>
@@ -16,6 +16,28 @@
             店頭販売のみで、通信販売は致しておりません。</br>
             ※このお店は実在しません
         </small>
-    </h3>
+        </br>
+        </br>
 
+        <h4 class="font-weight-bold">新商品</h4>
+
+          <div class="top_item-wrap2">
+            <% @items_desc = Item.order(created_at: :desc).limit(4).each do |item| %>
+              <span class="item-box font-weight-bold">
+                <%= link_to admin_item_path(item.id) do %>
+                  <% if item.image.present? %>
+                    <%= image_tag item.image, size: "150x100" %>
+                  <% else %>
+                    <%= image_tag 'default-image.jpg', size: "150x100" %>
+                  <% end %>
+                <% end %>
+                <div class="item-comment">
+                  <span class="item-body"><%= item.name %></span><br>
+                  <span class="item-body", style="font-size:12px"><%= item.introduction %></span><br>
+                  <span class="item-title", style="font-size:12px">¥<%= item.price.to_s(:delimited) %></span>
+                </div>
+              </span>
+            <% end %>
+         </div>
+    </span>
 </div>
