@@ -2,13 +2,13 @@
 
           <div class="post_images-wrap">
             <% @post_images_desc = PostImage.order(created_at: :desc).each do |post_image| %>
-              <span class="post_images-box font-weight-bold">
+              <span class="post_images-box2 font-weight-bold">
                 <%= link_to post_image_path(post_image.id) do %>
                     <%= image_tag post_image.get_image(250,150) %>
                 <% end %>
                 </br>
                 </br>
-                <div class="item-comment">
+                <div class="post_images-comment">
                   <span class="item-body"><%= image_tag post_image.user.get_profile_image(50,50), class:"rounded-circle" %></span><br>
                   <span class="item-body", style="font-size:12px">
                     <%= link_to  user_path(post_image.user.id) do %>

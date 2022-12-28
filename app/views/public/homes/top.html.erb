@@ -23,7 +23,7 @@
 
           <div class="top_item-wrap2">
             <% @items_desc = Item.order(created_at: :desc).limit(4).each do |item| %>
-              <span class="item-box font-weight-bold">
+              <span class="item-box1 font-weight-bold">
                 <%= link_to admin_item_path(item.id) do %>
                   <% if item.image.present? %>
                     <%= image_tag item.image, size: "150x100" %>

@@ -13,6 +13,34 @@
  *= require_tree .
  *= require_self
  */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+* {
+   font-family: 'Kosugi Maru', sans-serif;
+}
+
+nav {
+  width: 100%;
+  margin: 0 auto;
+  border-top: solid 0.7px #000000;
+  border-bottom: solid 0.7px #000000;
+}
+
+.nav-list {
+  text-align: center;
+  padding: 10px 0;
+  margin: 0 auto;
+}
+
+.nav-item {
+  list-style: none;
+  display: inline-block;
+  margin: 0 20px;
+}
 
 .top {
   position: relative;
@@ -28,8 +56,33 @@
   font-size: 24px; /* 文字の大きさ */
   font-weight: bold;
   position: absolute;
-  left: 50%;
-  top: 20%;
+  left: 45%;
+  top: 15%;
+}
+
+.item-box1 {
+  width: 170px;
+  height: 250px;
+  margin: 10px;
+  position: relative;
+}
+
+.item-box2 {
+  display: block;
+  width: 150px;
+  height: 170px;
+  margin: 10px;
+  flex-wrap: wrap;
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+
+.item-wrap1 {
+  display: flex;
+  justify-content: space-around;
 }
 
 .top_item-wrap2 {
@@ -38,11 +91,6 @@
   background-color: white;
   padding: 5px;
   border-color: black;
-}
-
-.item-wrap1 {
-  display: flex;
-  justify-content: space-around;
 }
 
 .post_images-wrap {
@@ -54,6 +102,39 @@
   border-color: black;
 }
 
+.post_images-box1 {
+  display: block;
+  width: 170px;
+  height: 270px;
+  margin: 10px;
+  flex-wrap: wrap;
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
 
+.post_images-box2 {
+  display: block;
+  width: 170px;
+  height: 320px;
+  margin: 10px;
+  flex-wrap: wrap;
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.post_images-comment {
+  display: block;
+  width: 170px;
+  left: 0;
+  bottom: 0;
+  position: absolute;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
 
 

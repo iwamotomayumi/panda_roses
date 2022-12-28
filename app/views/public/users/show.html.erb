@@ -62,15 +62,15 @@
 
           <div class="post_images-wrap">
             <% @post_images.each.with_index(1) do |post_image| %>
-              <span class="item-box font-weight-bold">
+              <span class="post_images-box1 font-weight-bold">
                 <%= link_to post_image_path(post_image.id) do %>
-                    <%= image_tag post_image.get_image(100,100) %>
+                    <%= image_tag post_image.get_image(250,150) %>
                 <% end %>
                 </br>
                 &emsp;
                 <% if post_image.favorited_by?(current_user) %>
                   <%= link_to post_image_favorites_path(post_image), method: :delete do %>
-                    ❤<small><%= post_image.favorites.count %></small>
+                    ❤️<small><%= post_image.favorites.count %></small>
                   <% end %>
                 <% else %>
                   <%= link_to post_image_favorites_path(post_image), method: :post do %>
@@ -78,7 +78,7 @@
                   <% end %>
                 <% end %>
 
-                <div class="post_image-comment">
+                <div class="post_images-comment">
                   <span class="post_image-body", style="font-size:12px"><%= post_image.created_at.strftime("%Y/%m/%d") %></span><br>
                   <span class="post_image-body"><%= post_image.title %></span><br>
                   <span class="post_image-body", style="font-size:12px"><%= post_image.caption %></span><br>
