@@ -1,2 +1,37 @@
-<h1>Public::PostImages#edit</h1>
-<p>Find me in app/views/public/post_images/edit.html.erb</p>
+<div>
+  <%= flash[:notice] %>
+</div>
+
+</br>
+
+  <div class="container">
+    <div class="row-12">
+      <div class="px-3 mr-auto">
+
+        <div class="col-3 text-center">
+          <h4 class="bg-warning">投稿編集</h4>
+        </div>
+
+        <%= form_with model: @post_image, url: post_image_path(@post_image.id), method: :patch do |f| %>
+          <table class="lb-5">
+            <tr>
+              <td width="20%" height="40">投稿画像</td>
+              <td><%= f.file_field :image, accept: "image/*" %></td>
+            </tr>
+            <tr>
+              <td width="20%" height="40">タイトル</td>
+              <td><%= f.text_field :title %></td>
+            </tr>
+            <tr>
+              <td class="align="left" valign="top"" width="20%" height="40">本文</td>
+              <td><%= f.text_area :caption, :size=>"35x7" %></td>
+            </tr>
+            <tr>
+              <td width="20%" height="40"><%= link_to "<戻る", post_image_path(@post_image.id) %></td>
+              <td><%= f.submit '保存', class:"btn btn-success" %></td>
+            </tr>
+          </table>
+        <% end %>
+    </div>
+  </div>
+</div>

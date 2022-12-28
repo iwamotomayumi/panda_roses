@@ -4,8 +4,8 @@ class Public::UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @post_images = @user.post_images
-    @post_image = PostImage.new
+    @new_post_image = PostImage.new
+    @post_images = @user.post_images.order("created_at DESC")
   end
 
   def edit
@@ -38,6 +38,7 @@ class Public::UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:last_name, :first_name, :last_name_kana, :first_name_kana, :email, :encrypted_password, :introduction, :telephone_number, :is_deleted, :profile_image)
   end
+
 
   def is_matching_login_user
     user_id = params[:id].to_i

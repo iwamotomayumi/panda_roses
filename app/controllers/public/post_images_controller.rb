@@ -1,6 +1,6 @@
 class Public::PostImagesController < ApplicationController
   def index
-    @post_images = PostImage.all
+    @post_images = PostImage.page(params[:page]).per(15)
   end
 
   def new
@@ -26,6 +26,17 @@ class Public::PostImagesController < ApplicationController
   end
 
   def edit
+    @post_image = PostImage.find(params[:id])
+  end
+
+  def update
+    @post_image = PostImage.find(params[:id])
+    if @post_image.update(post_image_params)
+      flash[:notice] = "投稿を編集しました"
+      redirect_to post_image_path(@post_image.id)
+    else
+     render :edit
+    end
   end
 
  private

@@ -16,7 +16,9 @@
           <span><%= @user.introduction %></span>
           <br>
         </span>
-      <%= link_to "編集する", edit_user_path(current_user), class:"btn btn-success" %>
+      <% if @user == current_user %>
+        <%= link_to "編集する", edit_user_path(current_user), class:"btn btn-success" %>
+      <% end %>
       </br>
       </br>
       <h4>
@@ -30,8 +32,8 @@
       </ul>
       <% end %>
 
-
-      <%= form_with model: @post_image, url: '/post_images', method: :post  do |f| %>
+      <% if @user == current_user %>
+       <%= form_with model: @new_post_image, url: '/post_images', method: :post  do |f| %>
        <table class="table table-border">
         <tr>
           <td style="font-size:12px">投稿画像</td>
@@ -52,17 +54,30 @@
         </tr>
        </table>
       <% end %>
+     <% end %>
     </div>
 
      <div class="col-md-7">
       <h4 class="font-weight-bold">投稿履歴</h4>
 
           <div class="post_images-wrap">
-            <% @post_images_desc = PostImage.order(created_at: :desc).each do |post_image| %>
+            <% @post_images.each.with_index(1) do |post_image| %>
               <span class="item-box font-weight-bold">
                 <%= link_to post_image_path(post_image.id) do %>
                     <%= image_tag post_image.get_image(100,100) %>
                 <% end %>
+                </br>
+                &emsp;
+                <% if post_image.favorited_by?(current_user) %>
+                  <%= link_to post_image_favorites_path(post_image), method: :delete do %>
+                    ❤<small><%= post_image.favorites.count %></small>
+                  <% end %>
+                <% else %>
+                  <%= link_to post_image_favorites_path(post_image), method: :post do %>
+                    ♡<small><%= post_image.favorites.count %></small>
+                  <% end %>
+                <% end %>
+
                 <div class="post_image-comment">
                   <span class="post_image-body", style="font-size:12px"><%= post_image.created_at.strftime("%Y/%m/%d") %></span><br>
                   <span class="post_image-body"><%= post_image.title %></span><br>

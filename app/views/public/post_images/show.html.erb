@@ -9,7 +9,18 @@
     <div class="col-md-5">
       <%= image_tag @post_image.get_image(250,150) %></br>
       </br>
-      <p><%= image_tag @post_image.user.get_profile_image(50,50), class:"rounded-circle" %></p>
+      <p><%= image_tag @post_image.user.get_profile_image(50,50), class:"rounded-circle" %>
+        &emsp;
+        <% if @post_image.favorited_by?(current_user) %>
+            <%= link_to post_image_favorites_path(@post_image), method: :delete do %>
+              ❤️<small><%= @post_image.favorites.count %></small>
+            <% end %>
+        <% else %>
+            <%= link_to post_image_favorites_path(@post_image), method: :post do %>
+              ♡<small><%= @post_image.favorites.count %></small>
+            <% end %>
+        <% end %>
+      </p>
       <table class="table table-border">
         <tr>
           <td style="font-size:12px" width="80">投稿者</td>
@@ -34,7 +45,7 @@
         <% if @post_image.user == current_user %>
           <tr>
             <td></td>
-            <td><%= link_to "編集する", edit_post_image_path(@post_image.id), class:"btn btn-success" %></td>
+            <td><%= link_to "投稿を編集", edit_post_image_path(@post_image.id), class:"btn btn-success" %></td>
             <td><%= link_to "投稿を削除", post_image_path(@post_image.id), method: :delete, "data-confirm" => "この投稿を削除しますか？", class:"btn btn-sm btn-danger" %></td>
           </tr>
         <% end %>
