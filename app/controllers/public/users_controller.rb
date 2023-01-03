@@ -33,6 +33,13 @@ class Public::UsersController < ApplicationController
     flash[:notice] = "退会処理を実行いたしました"
     redirect_to root_path
   end
+
+  def favorites
+   favorites = Favorite.where(user_id: current_user.id).pluck(:post_image_id)
+   @favorite_list = PostImage.find(favorites)
+  end
+
+
   private
   # ストロングパラメータ
   def user_params

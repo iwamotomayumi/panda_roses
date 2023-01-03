@@ -20,6 +20,7 @@
               ♡<small><%= @post_image.favorites.count %></small>
             <% end %>
         <% end %>
+        💬<small><%= @post_image.post_comments.count %></small>
       </p>
       <table class="table table-border">
         <tr>
@@ -39,7 +40,7 @@
           <td style="font-size:12px"><%= @post_image.title %></td>
         </tr>
         <tr>
-          <td style="font-size:12px">説明</td>
+          <td style="font-size:12px">投稿説明</td>
           <td style="font-size:12px"><%= @post_image.caption %></td>
         </tr>
         <% if @post_image.user == current_user %>
@@ -53,9 +54,34 @@
     </div>
 
     <div class="col-md-6">
-      コメント
+      ☺投稿へのコメント☺︎︎
+      <%= form_with model: [@post_image, @post_comment] do |f| %>
+        <%= f.text_area :comment, rows: '5', placeholder: "コメントをここにどうぞ" %>
+        <%= f.submit "コメント投稿", class: "btn btn-primary" %>
+      <% end %>
       </br>
-      コメント一覧
+      ☺︎コメント一覧☺︎
+        <% @post_image.post_comments.each do |post_comment| %>
+          <table>
+            <tr>
+              <td width="30">💬</td>
+              <td width="70"><%= image_tag post_comment.user.get_profile_image(50,50), class:"rounded-circle"  %></td>
+              <td width="100">
+                <%= link_to  user_path(post_comment.user.id) do %>
+                  <%= post_comment.user.last_name %><%= post_comment.user.first_name %>
+                <% end %>
+              </td>
+              <td width="100"><%= post_comment.created_at.strftime('%Y/%m/%d') %></td>
+              <td width="300"><%= post_comment.comment %></td>
+              <td width="70">
+                <% if post_comment.user == current_user %>
+                  <%= link_to "削除", post_image_post_comment_path(post_comment.post_image, post_comment), method: :delete, class:"btn btn-danger" %>
+                <% end %>
+              </td>
+            </tr>
+            </br>
+          </table>
+        <% end %>
     </div>
   </div>
 </div>

@@ -7,17 +7,18 @@
   <div class="row">
 
     <div class="col-md-5">
-      <h4 class="bg-warning text-center">会員情報</h4>
-        <span class="item-box font-weight-bold">
+      <h4 class="bg-warning text-center">👤会員情報</h4>
+        <span class="box font-weight-bold">
 
           <%= image_tag @user.get_profile_image(100,100), class:"rounded-circle" %>
+          <%= link_to "❤️", favorites_users_path %>
           </br>
           <span><%= @user.last_name %><%= @user.first_name %></span><br>
           <span><%= @user.introduction %></span>
           <br>
         </span>
       <% if @user == current_user %>
-        <%= link_to "編集する", edit_user_path(current_user), class:"btn btn-success" %>
+        <%= link_to "会員情報編集", edit_user_path(current_user), class:"btn btn-success" %>
       <% end %>
       </br>
       </br>
@@ -32,6 +33,7 @@
       </ul>
       <% end %>
 
+      <h4 class="bg-warning text-center">投稿🤳</h4>
       <% if @user == current_user %>
        <%= form_with model: @new_post_image, url: '/post_images', method: :post  do |f| %>
        <table class="table table-border">
@@ -49,7 +51,7 @@
           <td style="font-size:12px"><%= f.text_area :caption, placeholder: "投稿文", :size=>"40x10" %></td>
         </tr>
         <tr>
-          <td><%= f.submit "投稿する", class:"btn btn-success" %></td>
+          <td><%= f.submit "投稿する", class: "btn btn-primary" %></td>
           <td></td>
         </tr>
        </table>
@@ -58,7 +60,7 @@
     </div>
 
      <div class="col-md-7">
-      <h4 class="font-weight-bold">投稿履歴</h4>
+      <h4 class="font-weight-bold">☺︎投稿履歴☺︎</h4>
 
           <div class="post_images-wrap">
             <% @post_images.each.with_index(1) do |post_image| %>
@@ -76,6 +78,9 @@
                   <%= link_to post_image_favorites_path(post_image), method: :post do %>
                     ♡<small><%= post_image.favorites.count %></small>
                   <% end %>
+                <% end %>
+                <%= link_to post_image_path(post_image.id) do %>
+                   💬<small><%= post_image.post_comments.count %></small>
                 <% end %>
 
                 <div class="post_images-comment">

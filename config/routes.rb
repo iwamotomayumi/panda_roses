@@ -26,7 +26,9 @@ scope module: :public do
   root to: "homes#top"
   get 'users/unsubscribe'
   patch 'users/withdrawal'
-  resources :users
+  resources :users do
+    get :favorites, on: :collection
+  end
   resources :post_images do
     resource :favorites, only: [:create, :destroy]
     resources :post_comments, only: [:create, :destroy]
