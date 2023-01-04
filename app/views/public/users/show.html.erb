@@ -9,11 +9,25 @@
     <div class="col-md-5">
       <h4 class="bg-warning text-center">👤会員情報</h4>
         <span class="box font-weight-bold">
-
-          <%= image_tag @user.get_profile_image(100,100), class:"rounded-circle" %>
-          <%= link_to "❤️", favorites_users_path %>
+          <%= image_tag @user.get_profile_image(80,80), class:"rounded-circle" %>
+          ☺︎<%= link_to "︎フォロー数︎", user_followings_path(@user.id) %> <small><%= @user.followings.count %></small>&emsp;
+          ☺︎<%= link_to "︎フォロワー数︎", user_followers_path(@user.id) %> <small> <%= @user.followers.count %></small>&emsp;
+          <% if @user == current_user %>
+            ☺︎<%= link_to "いいね️", favorites_users_path %>
+            <small> <%= @user.favorites.count %></small>
+          <% end %>
           </br>
-          <span><%= @user.last_name %><%= @user.first_name %></span><br>
+          <span>
+            <%= @user.last_name %><%= @user.first_name %>&emsp;
+            <% if current_user != @user%>
+              <% if current_user.following?(@user) %>
+                <%= link_to "フォロー外す", user_relationships_path(@user.id), method: :delete, class: "btn btn-danger" %>
+              <% else %>
+                <%= link_to "フォローする", user_relationships_path(@user.id), method: :post, class: "btn btn-info" %>
+              <% end %>
+            <% end %>
+          </span>
+          <br>
           <span><%= @user.introduction %></span>
           <br>
         </span>
@@ -33,8 +47,8 @@
       </ul>
       <% end %>
 
-      <h4 class="bg-warning text-center">投稿🤳</h4>
       <% if @user == current_user %>
+       <h4 class="bg-warning text-center">投稿🤳</h4>
        <%= form_with model: @new_post_image, url: '/post_images', method: :post  do |f| %>
        <table class="table table-border">
         <tr>

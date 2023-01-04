@@ -26,8 +26,12 @@ scope module: :public do
   root to: "homes#top"
   get 'users/unsubscribe'
   patch 'users/withdrawal'
+  # ネストさせる
   resources :users do
     get :favorites, on: :collection
+    resource :relationships, only: [:create, :destroy]
+    get 'followings' => 'relationships#followings', as: 'followings'
+    get 'followers' => 'relationships#followers', as: 'followers'
   end
   resources :post_images do
     resource :favorites, only: [:create, :destroy]

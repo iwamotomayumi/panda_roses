@@ -1,0 +1,10 @@
+</br>
+<div class="container">
+
+  <h2>☺︎フォロー中☺︎</h2>
+  <% if @users.exists? %>
+    <%= render '/public/relationships/follow_list', users: @users %>
+  <% else %>
+    <p>ユーザーはいません</p>
+  <% end %>
+</div>
