@@ -1,2 +1,50 @@
-<h1>Admin::Users#index</h1>
-<p>Find me in app/views/admin/users/index.html.erb</p>
+<div>
+  <%= flash[:notice] %>
+<div>
+<br>
+<div class="container">
+
+  <div class="row">
+    <div class="col-1"></div>
+    <div class="col-2 text-center ml-30">
+      <h4 class="bg-warning">☺︎会員一覧☺︎</h4>
+    </div>
+  </div>
+      <br>
+
+  <div class="row">
+    <div class="col-2"></div>
+    <div class="col-8">
+     <table class="table table-hover table-inverse">
+      <tr style="background:#dad7d7;">
+        <th width="150"></th>
+        <th width="150">会員ID</th>
+        <th width="400">氏名</th>
+        <th width="500">メールアドレス</th>
+        <th width="300">ステータス</th>
+      </tr>
+      <% @users.each do |user| %>
+        <tr>
+          <td><%= image_tag user.get_profile_image(80,80), class:"rounded-circle" %></td>
+          <td><%= user.id %></td>
+          <td><%= link_to user.last_name, admin_user_path(user.id) %><%= link_to user.first_name, admin_user_path(user.id) %></td>
+          <td><%= user.email %></td>
+          <td><% if user.is_deleted == false %>
+              有効
+              <% else %>
+              退会
+              <% end %>
+          </td>
+         </tr>
+      <% end %>
+      </table>
+  </div>
+
+  <div class= "row">
+    <div class="col-5"></div>
+    <div class= "col-2 text-center">
+      <%= paginate @users %>
+    </div>
+  </div>
+
+</div>

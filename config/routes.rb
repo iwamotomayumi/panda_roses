@@ -1,12 +1,5 @@
 Rails.application.routes.draw do
 
-
-
-  namespace :public do
-    get 'users/show'
-    get 'users/edit'
-
-  end
  # 会員用
 # URL /users/sign_in ...
 devise_for :users,skip: [:passwords], controllers: {
@@ -43,7 +36,10 @@ end
 # 管理者用
  namespace :admin do
     root to: "homes#top"
-    resources :users
+    resources :users do
+      get 'followings' => 'relationships#followings', as: 'followings'
+      get 'followers' => 'relationships#followers', as: 'followers'
+    end
     resources :items
     resources :post_images do
       resources :post_comments, only: [:destroy]

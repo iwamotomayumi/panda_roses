@@ -1,0 +1,19 @@
+
+  <% if users.exists? %>
+    <% users.each do |user| %>
+      <table>
+          <tr>
+            <td width="100"> <%= image_tag user.get_profile_image(80,80), class:"rounded-circle" %></td>
+            <td width="150">
+              <%= link_to  admin_user_path(user.id) do %>
+                <%= user.last_name %><%= user.first_name %>
+              <% end %>
+            </td>
+            <td width="150">フォロー数: <%= user.followings.count %></td>
+            <td width="150">フォロワー数: <%= user.followers.count %></td>
+          </tr>
+      </table>
+    <% end %>
+  <% else %>
+    <p>ユーザーはいません</p>
+  <% end %>
