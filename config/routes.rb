@@ -17,8 +17,10 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
 # 会員用
 scope module: :public do
   root to: "homes#top"
+  get 'search' => "searches#search"
   get 'users/unsubscribe'
   patch 'users/withdrawal'
+  resources :items, only: [:index, :show]
   # ネストさせる
   resources :users do
     get :favorites, on: :collection
@@ -36,6 +38,7 @@ end
 # 管理者用
  namespace :admin do
     root to: "homes#top"
+    get 'search' => "searches#search"
     resources :users do
       get 'followings' => 'relationships#followings', as: 'followings'
       get 'followers' => 'relationships#followers', as: 'followers'

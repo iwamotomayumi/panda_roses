@@ -1,6 +1,8 @@
 class Public::PostImagesController < ApplicationController
+  before_action :authenticate_user!
+
   def index
-    @post_images = PostImage.page(params[:page]).per(15)
+    @post_images = PostImage.order(created_at: :desc).page(params[:page]).per(15)
   end
 
   def new

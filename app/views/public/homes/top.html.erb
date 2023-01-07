@@ -24,7 +24,7 @@
           <div class="top_item-wrap2">
             <% @items_desc = Item.order(created_at: :desc).limit(4).each do |item| %>
               <span class="item-box1 font-weight-bold">
-                <%= link_to admin_item_path(item.id) do %>
+                <%= link_to item_path(item.id) do %>
                   <% if item.image.present? %>
                     <%= image_tag item.image, size: "150x100" %>
                   <% else %>
@@ -32,7 +32,7 @@
                   <% end %>
                 <% end %>
                 <div class="item-comment">
-                  <span class="item-body"><%= item.name %></span><br>
+                  <span class="item-body", style="font-size:15px"><%= item.name %></span><br>
                   <span class="item-body", style="font-size:12px"><%= item.introduction %></span><br>
                   <span class="item-title", style="font-size:12px">¥<%= item.price.to_s(:delimited) %></span>
                 </div>

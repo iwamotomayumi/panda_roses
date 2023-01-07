@@ -1,4 +1,6 @@
 class Admin::ItemsController < ApplicationController
+  before_action :authenticate_admin!
+
   def index
   end
 
@@ -34,6 +36,13 @@ class Admin::ItemsController < ApplicationController
        flash[:notice] = "変更内容を入力して下さい"
       render :edit
     end
+  end
+
+  def destroy
+    @item = Item.find(params[:id])
+    @item.destroy
+    flash[:notice] = "投稿を削除しました"
+    redirect_to admin_root_path
   end
 
 

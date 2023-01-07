@@ -37,7 +37,7 @@
             <td style="font-size:15px"><%= f.text_field :price, :size=>"35" %>円</td>
           </tr>
 
-          <td></td>
+          <td><%= link_to "<戻る", admin_item_path(@item.id) %></td>
           <td class="text-center"><%= f.submit "変更を保存", class:"btn btn-success" %></td>
 
         </table>

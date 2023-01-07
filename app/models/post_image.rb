@@ -18,4 +18,12 @@ class PostImage < ApplicationRecord
     favorites.exists?(user_id: user.id)
   end
 
+  def self.looks(searches, words)
+    if searches == "perfect_match"
+      @post_image = PostImage.where(['title LIKE(?) OR caption LIKE(?)',"%#{words}%","%#{words}%"])
+    else
+      @post_image = PostImage.where(['title LIKE(?) OR caption LIKE(?)',"%#{words}%","%#{words}%"])
+    end
+  end
+
 end

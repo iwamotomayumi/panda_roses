@@ -41,4 +41,12 @@ class User < ApplicationRecord
    followings.include?(user)
   end
 
+  def self.looks(searches, words)
+    if searches == "perfect_match"
+      @user = User.where(['last_name LIKE(?) OR first_name LIKE(?)',"%#{words}%","%#{words}%"])
+    else
+      @user = User.where(['last_name LIKE(?) OR first_name LIKE(?)',"%#{words}%","%#{words}%"])
+    end
+  end
+
 end

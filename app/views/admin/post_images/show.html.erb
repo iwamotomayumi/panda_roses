@@ -1,2 +1,69 @@
-<h1>Admin::PostImages#show</h1>
-<p>Find me in app/views/admin/post_images/show.html.erb</p>
+<div>
+  <%= flash[:notice] %>
+<div>
+<br>
+
+<div class="container">
+  <div class="row">
+
+    <div class="col-md-5">
+      <%= image_tag @post_image.get_image(250,150) %></br>
+      </br>
+      <p><%= image_tag @post_image.user.get_profile_image(50,50), class:"rounded-circle" %>
+        &emsp;
+          ❤️<small><%= @post_image.favorites.count %></small>
+          💬<small><%= @post_image.post_comments.count %></small>
+      </p>
+      <table class="table table-border">
+        <tr>
+          <td style="font-size:12px" width="80">投稿者</td>
+          <td style="font-size:12px">
+            <%= link_to  admin_user_path(@post_image.user.id) do %>
+              <%= @post_image.user.last_name %><%= @post_image.user.first_name %>
+            <% end %>
+          </td>
+        </tr>
+        <tr>
+          <td style="font-size:12px">投稿日</td>
+          <td style="font-size:12px"><%= @post_image.created_at.strftime('%Y/%m/%d') %></td>
+        </tr>
+        <tr>
+          <td style="font-size:12px">タイトル</td>
+          <td style="font-size:12px"><%= @post_image.title %></td>
+        </tr>
+        <tr>
+          <td style="font-size:12px">投稿説明</td>
+          <td style="font-size:12px"><%= @post_image.caption %></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><%= link_to "投稿を編集", edit_admin_post_image_path(@post_image.id), class:"btn btn-success" %>
+              <%= link_to "投稿を削除", admin_post_image_path(@post_image.id), method: :delete, "data-confirm" => "この投稿を削除しますか？", class:"btn btn-sm btn-danger" %>&emsp;
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="col-md-6">
+      ☺︎コメント一覧☺︎
+        <% @post_image.post_comments.each do |post_comment| %>
+          <table>
+            <tr>
+              <td width="30">💬</td>
+              <td width="70"><%= image_tag post_comment.user.get_profile_image(50,50), class:"rounded-circle"  %></td>
+              <td width="100">
+                <%= link_to  user_path(post_comment.user.id) do %>
+                  <%= post_comment.user.last_name %><%= post_comment.user.first_name %>
+                <% end %>
+              </td>
+              <td width="100"><%= post_comment.created_at.strftime('%Y/%m/%d') %></td>
+              <td width="300"><%= post_comment.comment %></td>
+              <td width="70"><%= link_to "削除", admin_post_image_post_comment_path(post_comment.post_image, post_comment), method: :delete, data: {confirm: "本当に削除しますか？"}, class:"btn btn-danger" %>
+              </td>
+            </tr>
+            </br>
+          </table>
+        <% end %>
+    </div>
+  </div>
+</div>

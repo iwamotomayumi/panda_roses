@@ -1,0 +1,29 @@
+<div class="post_images-wrap">
+            <% post_images.each do |post_image| %>
+              <span class="post_images-box2 font-weight-bold">
+                <%= link_to admin_post_image_path(post_image.id) do %>
+                    <%= image_tag post_image.get_image(250,150) %>
+                <% end %>
+
+                </br>
+                </br>
+                <div class="post_images-comment">
+                  <span class="item-body">
+                    <%= image_tag post_image.user.get_profile_image(50,50), class:"rounded-circle" %>
+                     &emsp;
+                        ❤️<small><%= post_image.favorites.count %></small>
+                       💬<small><%= post_image.post_comments.count %></small>
+                  </span>
+                  <br>
+                  <span class="item-body", style="font-size:12px">
+                    <%= link_to  admin_user_path(post_image.user.id) do %>
+                      <%= post_image.user.last_name %><%= post_image.user.first_name %>
+                    <% end %>
+                  </span>
+                  <span class="item-title", style="font-size:12px"><%= post_image.created_at.strftime('%Y/%m/%d') %></span></br>
+                  <span class="item-title", style="font-size:12px"><%= post_image.title %></span></br>
+                  <span class="item-title", style="font-size:12px"><%= post_image.caption %></span>
+                </div>
+              </span>
+            <% end %>
+         </div>

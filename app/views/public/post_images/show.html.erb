@@ -75,7 +75,7 @@
               <td width="300"><%= post_comment.comment %></td>
               <td width="70">
                 <% if post_comment.user == current_user %>
-                  <%= link_to "削除", post_image_post_comment_path(post_comment.post_image, post_comment), method: :delete, class:"btn btn-danger" %>
+                  <%= link_to "削除", post_image_post_comment_path(post_comment.post_image, post_comment), method: :delete, "data-confirm" => "コメントを削除しますか？", class:"btn btn-danger" %>
                 <% end %>
               </td>
             </tr>

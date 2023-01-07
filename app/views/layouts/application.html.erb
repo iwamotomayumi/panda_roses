@@ -19,8 +19,7 @@
             <h3>🐻panda_roses🌹</h3>
           </div>
             <% if user_signed_in? %>
-              ようこそ、<%= current_user.last_name %><%= current_user.first_name %>さん！
-
+              👤<%= current_user.last_name %><%= current_user.first_name %>さん
               <ul class="navbar-nav ml-auto">
                 <div class="form-inline text-right">
                    <p class="nav-item">
@@ -34,6 +33,14 @@
                   </p>
                   <p class="nav-item">
                     <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+                  </p>
+                  <p class="nav-item">
+                    <%= form_with url: search_path, method: :get, local: :true do |f| %>
+                      <%= f.select :range, options_for_select([['会員'], ['投稿']]) %>
+                      <%= f.select :search, options_for_select([["完全一致","perfect_match"], ["部分一致","partial_match"]]) %>
+                      <%= f.text_field :word %>
+                      <%= f.submit "検索" %>
+                    <% end %>
                   </p>
 
                 <% elsif admin_signed_in? %>
@@ -49,6 +56,12 @@
                   <p class="nav-item">
                     <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
                   </p>
+                  <%= form_with url: admin_search_path, method: :get, local: :true do |f| %>
+                      <%= f.select :range, options_for_select([['会員'], ['投稿']]) %>
+                      <%= f.select :search, options_for_select([["完全一致","perfect_match"], ["部分一致","partial_match"]]) %>
+                      <%= f.text_field :word %>
+                      <%= f.submit "検索" %>
+                    <% end %>
                 <% else %>
                     <p class="nav-item">
                       <%= link_to "TOP", root_path %>
@@ -60,9 +73,7 @@
                       <%= link_to "ログイン", new_user_session_path %>
                     </p>
                 <% end %>
-                <p class="search navbar-nav border">
-                    <i class="fas fa-search"></i>
-                </p>
+
               </div>
             </ul>
           </div>

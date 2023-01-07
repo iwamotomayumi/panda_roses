@@ -8,7 +8,7 @@
   <div class="row">
 
     <div class="col-md-5">
-      <h4 class="bg-warning text-center">商品新規登録</h4>
+      <h4 class="bg-warning text-center">☆商品新規登録☆</h4>
       <br>
       <h4>
         <% if @item.errors.any? %>
@@ -51,7 +51,7 @@
     </div>
 
     <div class="col-md-7">
-      <h4 class="font-weight-bold">新商品<small>（会員ページ表示中商品）</small></h4>
+      <h4 class="font-weight-bold">☺︎新商品☺︎<small>（ECサイト表示中商品：4件のみ）</small>︎</h4>
 
           <div class="item-wrap1">
             <% @items_desc = Item.order(created_at: :desc).limit(4).each do |item| %>
@@ -75,6 +75,7 @@
          </br>
 
          <div>
+           <h4>☺︎商品一覧☺︎</h4>
            <table class="table table-hover table-inverse">
             <tr style="background:#dad7d7;">
               <th width="150"></th>
