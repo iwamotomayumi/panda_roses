@@ -46,7 +46,7 @@
 
     <div class="col-md-6">
       ☺︎コメント一覧☺︎
-        <% @post_image.post_comments.each do |post_comment| %>
+        <% @post_image.post_comments.order(created_at: :desc).each do |post_comment| %>
           <table>
             <tr>
               <td width="30">💬</td>

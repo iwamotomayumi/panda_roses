@@ -5,7 +5,7 @@ class Public::UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @new_post_image = PostImage.new
-    @post_images = @user.post_images.order("created_at DESC")
+    @post_images = @user.post_images.order(created_at: :desc)
   end
 
   def edit

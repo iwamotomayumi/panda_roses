@@ -7,7 +7,7 @@
 
   <div class="row">
 
-    <div class="col-md-5">
+    <div class="col-md-4">
       <h4 class="bg-warning text-center">☆商品新規登録☆</h4>
       <br>
       <h4>
@@ -25,23 +25,23 @@
       <%= form_with model: @item, url: '/admin/items', method: :post do |f| %>
        <table class="table table-borderless">
         <tr>
-          <td style="font-size:12px">商品画像</td>
-          <td style="font-size:12px"><%= f.file_field :image, accept: "image/*" %></td>
+          <td style="font-size:14px">商品画像</td>
+          <td style="font-size:14px"><%= f.file_field :image, accept: "image/*" %></td>
         </tr>
 
         <tr>
-          <td style="font-size:12px">商品名</td>
-          <td style="font-size:12px"><%= f.text_field :name, placeholder: "商品名", :size=>"20" %></td>
+          <td style="font-size:14px">商品名</td>
+          <td style="font-size:14px"><%= f.text_field :name, placeholder: "商品名", :size=>"20" %></td>
         </tr>
 
         <tr>
-          <td style="font-size:12px ">商品説明</td>
-          <td style="font-size:12px"><%= f.text_area :introduction, placeholder: "ここに説明文を記述します",:size=>"20x7" %></td>
+          <td style="font-size:14px ">商品説明</td>
+          <td style="font-size:14px"><%= f.text_area :introduction, placeholder: "ここに説明文を記述します",:size=>"20x7" %></td>
         </tr>
 
         <tr>
-          <td style="font-size:12px ">税抜価格</td>
-          <td style="font-size:12px"><%= f.text_field :price, placeholder: "1000", :size=>"20"%>円</td>
+          <td style="font-size:14px ">税抜価格</td>
+          <td style="font-size:14px"><%= f.text_field :price, placeholder: "1000", :size=>"20"%>円</td>
         </tr>
 
         <td></td>
@@ -50,11 +50,11 @@
       <% end %>
     </div>
 
-    <div class="col-md-7">
+    <div class="col-md-8">
       <h4 class="font-weight-bold">☺︎新商品☺︎<small>（ECサイト表示中商品：4件のみ）</small>︎</h4>
 
-          <div class="item-wrap1">
-            <% @items_desc = Item.order(created_at: :desc).limit(4).each do |item| %>
+          <div class="top_item-wrap">
+            <% @items_desc.each do |item| %>
               <span class="item-box font-weight-bold">
                 <%= link_to admin_item_path(item.id) do %>
                   <% if item.image.present? %>
@@ -88,7 +88,7 @@
               <th width="600">商品説明</th>
             </tr>
 
-            <% @items.order(created_at: :desc).each do |item| %>
+            <% @items.each do |item| %>
               <tr>
                 <td>
                   <%= link_to admin_item_path(item.id) do %>

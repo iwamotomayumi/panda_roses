@@ -79,13 +79,7 @@ nav {
   text-overflow: ellipsis;
 }
 
-
-.item-wrap1 {
-  display: flex;
-  justify-content: space-around;
-}
-
-.top_item-wrap2 {
+.top_item-wrap {
   display: flex;
   justify-content: space-around;
   background-color: white;

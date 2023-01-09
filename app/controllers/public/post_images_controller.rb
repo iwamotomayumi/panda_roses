@@ -12,8 +12,13 @@ class Public::PostImagesController < ApplicationController
   def create
     @post_image = PostImage.new(post_image_params)
     @post_image.user_id = current_user.id
-    @post_image.save
-    redirect_to user_path(current_user)
+    if @post_image.save
+      flash[:notice] = "新規投稿しました"
+      redirect_to user_path(current_user)
+    else
+      flash[:notice] = "必要事項を入力して下さい"
+      redirect_to user_path(current_user)
+    end
   end
 
   def show
@@ -38,7 +43,8 @@ class Public::PostImagesController < ApplicationController
       flash[:notice] = "投稿を編集しました"
       redirect_to post_image_path(@post_image.id)
     else
-     render :edit
+      flash[:notice] = "変更内容を入力して下さい"
+      render :edit
     end
   end
 

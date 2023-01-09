@@ -4,8 +4,8 @@ class Admin::HomesController < ApplicationController
   def top
    @item = Item.new
     #=> :asc,古い順 :desc,新しい順
-   @items_desc = Item.all
-   @items = Item.page(params[:page]).per(10)
+   @items_desc = Item.order(created_at: :desc).limit(4)
+   @items = Item.order(created_at: :desc).page(params[:page]).per(10)
   end
 
 

@@ -19,9 +19,9 @@
         </br>
         </br>
 
-        <h4 class="font-weight-bold">☺︎新商品☺</h4>
+        <h4 class="font-weight-bold">☺︎新商品☺︎<small>最新4件</smal></h4>
 
-          <div class="top_item-wrap2">
+          <div class="top_item-wrap">
             <% @items_desc = Item.order(created_at: :desc).limit(4).each do |item| %>
               <span class="item-box1 font-weight-bold">
                 <%= link_to item_path(item.id) do %>
