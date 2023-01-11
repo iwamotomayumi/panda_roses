@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
 
+ # ゲスト用
+ devise_scope :user do
+  post 'users/guest_sign_in', to: 'users/sessions#guest_sign_in'
+ end
+
  # 会員用
 # URL /users/sign_in ...
 devise_for :users,skip: [:passwords], controllers: {

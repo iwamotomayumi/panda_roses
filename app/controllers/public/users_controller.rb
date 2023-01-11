@@ -1,5 +1,5 @@
 class Public::UsersController < ApplicationController
-
+  before_action :ensure_guest_user, only: [:edit]
   before_action :is_matching_login_user, only: [:edit, :update]
 
   def show
@@ -44,6 +44,14 @@ class Public::UsersController < ApplicationController
   # ストロングパラメータ
   def user_params
     params.require(:user).permit(:last_name, :first_name, :last_name_kana, :first_name_kana, :email, :encrypted_password, :introduction, :telephone_number, :is_deleted, :profile_image)
+  end
+
+  def ensure_guest_user
+    @user = User.find(params[:id])
+    if @user.last_name == "guest"
+       @user.first_name == "user"
+      redirect_to user_path(current_user) , notice: 'ゲストユーザーは会員情報編集画面へ遷移できません。'
+    end
   end
 
 

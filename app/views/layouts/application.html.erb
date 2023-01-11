@@ -13,11 +13,16 @@
 
   <body class="d-flex flex-column vh-100">
     <header class="border-bottom shadow-sm">
-      <nav class="navbar navbar-expand-lg">
+      <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container">
           <div class="navbar-brand p-3">
             <h3>🐻panda_roses🌹</h3>
           </div>
+           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+                        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <% if user_signed_in? %>
               <i class="fas fa-user"></i><%= current_user.last_name %><%= current_user.first_name %>さん
               <ul class="navbar-nav ml-auto">
@@ -73,6 +78,9 @@
                  <ul class="navbar-nav ml-auto">
                   <div class="form-inline text-right">
                     <p class="nav-item">
+                       <%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, class: "btn btn-secondary btn-sm btn-block mb-3 sign_in", method: :post %>
+                    </p>
+                    <p class="nav-item">
                       <%= link_to "TOP", root_path %>
                     </p>
                      <p class="nav-item">
@@ -84,6 +92,7 @@
                   </div>
                 </ul>
                <% end %>
+            </div>
           </div>
        </nav>
     </header>

@@ -49,4 +49,13 @@ class User < ApplicationRecord
     end
   end
 
+  #app/controllers/users/sessions_controller.rbで記述したUser.guestのguestメソッドを定義
+  def self.guest
+    find_or_create_by!(last_name: 'guest' ,first_name: 'user' ,last_name_kana: 'ゲスト' ,first_name_kana: 'ユーザー' ,telephone_number: '99911112222' ,email: 'guest@example.com') do |user|
+      user.password = SecureRandom.urlsafe_base64
+      user.last_name = "guest"
+      user.first_name = "user"
+    end
+  end
+
 end

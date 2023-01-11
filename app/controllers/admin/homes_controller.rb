@@ -1,5 +1,5 @@
 class Admin::HomesController < ApplicationController
-  before_action :authenticate_admin!, only: [:new, :create]
+  before_action :authenticate_admin!
 
   def top
    @item = Item.new

@@ -80,6 +80,7 @@ nav {
 }
 
 .top_item-wrap {
+  flex-wrap: wrap;
   display: flex;
   justify-content: space-around;
   background-color: white;
