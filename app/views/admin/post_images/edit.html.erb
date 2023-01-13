@@ -27,6 +27,12 @@
               <td><%= f.text_area :caption, :size=>"35x7" %></td>
             </tr>
             <tr>
+              <td class="align="left" valign="top"" width="20%" height="40">公開設定</td>
+              <td><%= f.radio_button :is_published_flag, false %>公開 &nbsp;
+                <%= f.radio_button :is_published_flag, true %>非公開
+              </td>
+            </tr>
+            <tr>
               <td width="20%" height="40"><%= link_to "<戻る", admin_post_image_path(@post_image.id) %></td>
               <td><%= f.submit '保存', class:"btn btn-success" %></td>
             </tr>

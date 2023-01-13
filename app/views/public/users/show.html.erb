@@ -82,7 +82,7 @@
       <h4 class="font-weight-bold">☺︎投稿履歴☺︎</h4>
 
           <div class="post_images-wrap">
-            <% @post_images.each.with_index(1) do |post_image| %>
+            <% @post_images.each do |post_image| %>
               <span class="post_images-box1 font-weight-bold">
                 <%= link_to post_image_path(post_image.id) do %>
                     <%= image_tag post_image.get_image(250,150) %>
@@ -101,7 +101,15 @@
                 <%= link_to post_image_path(post_image.id) do %>
                    💬<small><%= post_image.post_comments.count %></small>
                 <% end %>
-
+                <% if @user == current_user %>
+                  <small>
+                    <% if post_image.is_published_flag == false %>
+                      公開
+                    <% else %>
+                      非公開
+                    <% end %>
+                  </small>
+                <% end %>
                 <div class="post_images-comment">
                   <span class="post_image-body", style="font-size:12px"><%= post_image.created_at.strftime("%Y/%m/%d") %></span><br>
                   <span class="post_image-body"><%= post_image.title %></span><br>

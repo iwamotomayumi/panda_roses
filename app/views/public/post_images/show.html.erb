@@ -43,6 +43,7 @@
           <td style="font-size:12px">投稿説明</td>
           <td style="font-size:12px"><%= @post_image.caption %></td>
         </tr>
+         <% if @post_image.user == current_user %>
         <tr>
           <td style="font-size:12px">公開設定</td>
           <td style="font-size:12px"><% if @post_image.is_published_flag == false %>
@@ -52,7 +53,6 @@
                                     <% end %>
           </td>
         </tr>
-        <% if @post_image.user == current_user %>
           <tr>
             <td></td>
             <td><%= link_to "投稿を編集", edit_post_image_path(@post_image.id), class:"btn btn-success" %></td>

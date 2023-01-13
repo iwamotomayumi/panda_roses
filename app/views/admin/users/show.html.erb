@@ -6,7 +6,6 @@
 <div class="container">
 
   <div class="row">
-    <div class="col-1"></div>
     <div class="col-4 text-center">
       <h4 class="bg-warning">☺︎<%= @user.last_name %><%= @user.first_name %>さんの会員詳細☺︎</h4>
     </div>
@@ -14,8 +13,7 @@
       <br>
 
   <div class="row">
-    <div class="col-1"></div>
-    <div class="col-9">
+    <div class="col-md-6 col-sm-11">
       <table class="table table-borderless">
         <tr>
           <td width="200"><%= image_tag @user.get_profile_image(80,80), class:"rounded-circle" %></td>
@@ -63,6 +61,36 @@
           </td>
         </tr>
       </table>
-   </div>
+    </div>
+
+    <div class="col-md-6">
+      <h4 class="font-weight-bold">☺︎投稿履歴☺︎</h4>
+      <div class="post_images-wrap">
+        <% @post_images.each do |post_image| %>
+          <span class="post_images-box1 font-weight-bold">
+            <%= link_to admin_post_image_path(post_image.id) do %>
+              <%= image_tag post_image.get_image(250,150) %>
+            <% end %>
+            </br>
+            &emsp;
+                ❤️<small><%= post_image.favorites.count %></small>
+            <%= link_to admin_post_image_path(post_image.id) do %>
+              💬<small><%= post_image.post_comments.count %></small>
+            <% end %>
+            <small>
+              <% if post_image.is_published_flag == false %>
+                公開
+              <% else %>
+                非公開
+              <% end %>
+            </small>
+            <div class="post_images-comment">
+              <span class="post_image-body", style="font-size:12px"><%= post_image.created_at.strftime("%Y/%m/%d") %></span><br>
+              <span class="post_image-body"><%= post_image.title %></span><br>
+              <span class="post_image-body", style="font-size:12px"><%= post_image.caption %></span><br>
+            </div>
+          </span>
+        <% end %>
+    </div>
   </div>
 </div>

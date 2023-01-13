@@ -36,6 +36,16 @@
           <td style="font-size:12px"><%= @post_image.caption %></td>
         </tr>
         <tr>
+        <tr>
+          <td style="font-size:12px">公開設定</td>
+          <td style="font-size:12px"><% if @post_image.is_published_flag == false %>
+                                      公開
+                                    <% else %>
+                                      非公開
+                                    <% end %>
+          </td>
+        </tr>
+        <tr>
           <td></td>
           <td><%= link_to "投稿を編集", edit_admin_post_image_path(@post_image.id), class:"btn btn-success" %>
               <%= link_to "投稿を削除", admin_post_image_path(@post_image.id), method: :delete, "data-confirm" => "この投稿を削除しますか？", class:"btn btn-sm btn-danger" %>&emsp;
@@ -52,7 +62,7 @@
               <td width="30">💬</td>
               <td width="70"><%= image_tag post_comment.user.get_profile_image(50,50), class:"rounded-circle"  %></td>
               <td width="100">
-                <%= link_to  user_path(post_comment.user.id) do %>
+                <%= link_to admin_user_path(@post_image.user.id) do %>
                   <%= post_comment.user.last_name %><%= post_comment.user.first_name %>
                 <% end %>
               </td>
