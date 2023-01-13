@@ -66,7 +66,12 @@
           </tr>
           <tr>
             <td><%= f.submit "投稿する", class: "btn btn-primary" %></td>
-            <td></td>
+            <td>
+                <%= f.label :is_published_flag, "非公開", value: true %>
+                <%= f.radio_button :is_published_flag, 'true' %>
+                <%= f.label :is_published_flag, "公開", value: false %>
+                <%= f.radio_button :is_published_flag,'false' %>
+            </td>
           </tr>
          </table>
         <% end %>

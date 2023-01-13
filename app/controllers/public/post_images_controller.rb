@@ -2,7 +2,7 @@ class Public::PostImagesController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @post_images = PostImage.order(created_at: :desc).page(params[:page]).per(15)
+    @post_images = PostImage.published.order(created_at: :desc).page(params[:page]).per(15)
   end
 
   def new
@@ -51,7 +51,7 @@ class Public::PostImagesController < ApplicationController
  private
   # ストロングパラメータ
   def post_image_params
-    params.require(:post_image).permit(:title, :caption, :image)
+    params.require(:post_image).permit(:title, :caption, :image, :is_published_flag)
   end
 
 

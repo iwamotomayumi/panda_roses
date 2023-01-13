@@ -7,26 +7,35 @@
     <div class="px-3 mr-auto">
 
     <div class="col-1"></div>
-    <div class="col-3 text-center">
+    <div class="col-5 text-center">
       <h4 class="bg-warning">新規会員登録</h4>
     </div>
 
     <%= form_with model: @user, url: user_registration_path do |f| %>
       <%= render "public/shared/error_messages", resource: resource %>
 
-
-    <table class="table table-borderless">
-
+    <div class="col-md-12 text-center">
+      <table class="table table-borderless">
         <tr>
           <td>名前</td>
-          <td>（姓)</td><td><%= f.text_field :last_name, placeholder: "令和" %>&nbsp;&nbsp;&nbsp;&nbsp;
-              （名)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= f.text_field :first_name, placeholder: "道子" %></td>
+          <td>（姓)</td>
+          <td><%= f.text_field :last_name, placeholder: "令和" %></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>（名)</td>
+          <td><%= f.text_field :first_name, placeholder: "道子" %></td>
         </tr>
 
         <tr>
           <td>フリガナ</td>
-          <td>（セイ)</td><td><%= f.text_field :last_name_kana, placeholder: "レイワ" %>&nbsp;&nbsp;&nbsp;&nbsp;
-              （メイ)&nbsp;&nbsp;&nbsp;&nbsp;<%= f.text_field :first_name_kana, placeholder: "ミチコ" %></td>
+          <td>（セイ)</td>
+          <td><%= f.text_field :last_name_kana, placeholder: "レイワ" %></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>（メイ)</td>
+          <td><%= f.text_field :first_name_kana, placeholder: "ミチコ" %></td>
         </tr>
 
         <tr>
@@ -36,19 +45,19 @@
         </tr>
 
         <tr>
-          <td>電話番号（ハイフンなし）</td>
+          <td>電話番号<small>（ハイフンなし）</small></td>
           <td></td>
           <td><%= f.text_field :telephone_number, placeholder: "0000000000" %></td>
         </tr>
 
         <tr>
-          <td>パスワード(６文字以上)</td>
+          <td>パスワード<small>(６文字以上)</small></td>
            <td></td>
            <td><%= f.password_field :password, autocomplete: "new-password" %></td>
          </tr>
 
         <tr>
-          <td>パスワード(確認用)</td>
+          <td>パスワード<small>(確認用)</small></td>
           <td></td>
           <td><%= f.password_field :password_confirmation, autocomplete: "new-password" %></td>
         </tr>
@@ -57,8 +66,9 @@
           <td></td><td></td>
           <td><%= f.submit "新規登録", class:"btn btn-success" %></td>
         <tr>
-      </table>
-    <% end %>
+       </table>
+      </div>
+      <% end %>
 
       <h2>既に登録済みの方</h2>
       <%= link_to "こちら", new_user_session_path %>　からログインしてください。

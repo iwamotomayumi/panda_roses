@@ -4,11 +4,16 @@ class PostImage < ApplicationRecord
   has_many :post_comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
 
+   # 公開・非公開機能
+  scope :unpublished, -> {where(is_published_flag: true)}
+  scope :published, -> {where(is_published_flag: false)}
+
   has_one_attached :image
 
   validates :title, presence: true
   validates :caption, presence: true
   validates :image, presence: true
+
 
   def get_image(width, height)
     unless image.attached?
