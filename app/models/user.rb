@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :post_images, dependent: :destroy
   has_many :post_comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
+  has_many :view_counts, dependent: :destroy
 
  # 自分がフォローされる（被フォロー）側の関係性
   has_many :reverse_of_relationships, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy
@@ -19,6 +20,12 @@ class User < ApplicationRecord
   has_many :followings, through: :relationships, source: :followed
 
   has_one_attached :profile_image
+
+  validates :last_name, presence: true
+  validates :first_name, presence: true
+  validates :last_name_kana, presence: true
+  validates :first_name_kana, presence: true
+  validates :telephone_number, presence: true
 
   def get_profile_image(width, height)
    unless profile_image.attached?

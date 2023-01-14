@@ -3,6 +3,7 @@ class PostImage < ApplicationRecord
   belongs_to :user
   has_many :post_comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
+  has_many :view_counts, dependent: :destroy
 
    # 公開・非公開機能
   scope :unpublished, -> {where(is_published_flag: true)}

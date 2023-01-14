@@ -33,8 +33,15 @@
       </tr>
       <tr>
         <td>税込価格<br><small>(税抜価格）</small></td>
-        <td>¥<%= @item.add_tax_price.to_s(:delimited) %>
-           <small>(¥<%= @item.price.to_s(:delimited) %>)</small>
+        <td><strong>¥<%= @item.add_tax_price.to_s(:delimited) %></strong>
+           (¥<%= @item.price.to_s(:delimited) %>)
+        </td>
+      </tr>
+      <tr>
+        <td></td>
+        <td><%= link_to items_path do %>
+              <%= "商品一覧へ" %>
+            <% end %>
         </td>
       </tr>
     </table>

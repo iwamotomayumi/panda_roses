@@ -23,6 +23,10 @@ class Public::PostImagesController < ApplicationController
 
   def show
     @post_image = PostImage.find(params[:id])
+    @post_image_detail = PostImage.find(params[:id])
+    unless ViewCount.find_by(user_id: current_user.id, post_image_id: @post_image_detail.id)
+      current_user.view_counts.create(post_image_id: @post_image_detail.id)
+    end
     @post_comment = PostComment.new
   end
 

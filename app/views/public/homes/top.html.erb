@@ -1,43 +1,49 @@
-
 <div class="top">
-    <p class="top_resizeimage">
+  <p class="top_resizeimage">
        <%= image_tag('micheile-dot-com-KsV60CAazE0-unsplash') %>
-    </p>
-    <span class="top_text">
-        <big>🐼panda_roses🌹ハンドメイドのお店のサイトです！</big></br>
-        </br>
-        <strong>
-            〜娘が好きなパンダとお花をお店の名前にしました〜
-        </strong>
-        </br>
-        <small>
-            会員でない方もpnda_rosesの新作情報は閲覧できますが、</br>
-            投稿、閲覧するには会員登録が必要になります。</br>
-            店頭販売のみで、通信販売は致しておりません。</br>
-            ※このお店は実在しません
-        </small>
-        </br>
-        </br>
-
-        <h4 class="font-weight-bold">☺︎新商品☺︎<small>最新4件</smal></h4>
-
-          <div class="top_item-wrap">
-            <% @items_desc = Item.order(created_at: :desc).limit(4).each do |item| %>
-              <span class="item-box1 font-weight-bold">
-                <%= link_to item_path(item.id) do %>
-                  <% if item.image.present? %>
-                    <%= image_tag item.image, size: "150x100" %>
-                  <% else %>
-                    <%= image_tag 'default-image.jpg', size: "150x100" %>
-                  <% end %>
-                <% end %>
-                <div class="item-comment">
-                  <span class="item-body", style="font-size:15px"><%= item.name %></span><br>
-                  <span class="item-body", style="font-size:12px"><%= item.introduction %></span><br>
-                  <span class="item-title", style="font-size:12px">¥<%= item.price.to_s(:delimited) %></span>
-                </div>
-              </span>
+  </p>
+  <span class="top_text">
+      <big>🐼panda_roses🌹ハンドメイドのお店のサイトです！</big></br>
+      </br>
+      <strong>
+          〜娘が好きなパンダとお花をお店の名前にしました〜
+      </strong>
+      </br>
+       <small>
+        会員でない方もpnda_rosesの新作情報は閲覧できますが、</br>
+        投稿、閲覧するには会員登録が必要になります。</br>
+        店頭販売のみで、通信販売は致しておりません。</br>
+        ※このお店は実在しません
+      </small>
+      </br>
+      </br>
+      <h4 class="font-weight-bold">☺︎新商品☺︎<small>最新4件</smal>
+        <smal>
+          <% if user_signed_in? %>
+            <%= link_to items_path do %>
+              <%= "商品一覧を見る" %>
             <% end %>
-         </div>
+          <% end %>
+        </smal>
+      </h4>
+      <div class="item-wrap">
+        <% @items_desc = Item.order(created_at: :desc).limit(4).each do |item| %>
+          <span class="item-box1 font-weight-bold">
+            <%= link_to item_path(item.id) do %>
+              <% if item.image.present? %>
+                <%= image_tag item.image, size: "150x100" %>
+              <% else %>
+                <%= image_tag 'default-image.jpg', size: "150x100" %>
+              <% end %>
+            <% end %>
+            <div class="item-comment">
+              <span class="item-body", style="font-size:15px"><%= item.created_at.strftime('%Y/%m/%d') %></span><br>
+              <span class="item-body", style="font-size:15px"><%= item.name %></span><br>
+              <span class="item-body", style="font-size:12px"><%= item.introduction %></span><br>
+              <span class="item-title", style="font-size:12px">¥<%= item.add_tax_price.to_s(:delimited) %>（税込）</span>
+            </div>
+          </span>
+        <% end %>
+      </div>
     </span>
 </div>
