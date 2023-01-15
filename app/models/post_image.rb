@@ -11,8 +11,8 @@ class PostImage < ApplicationRecord
 
   has_one_attached :image
 
-  validates :title, presence: true
-  validates :caption, presence: true
+  validates :title, presence: true, length: { maximum: 20 }
+  validates :caption, presence: true, length: { maximum: 120 }
   validates :image, presence: true
 
 

@@ -1,11 +1,9 @@
 </br>
 <div class="container">
-
   <h2>☺︎フォロワー☺︎</h2>&emsp;<%= link_to "戻る", admin_user_path(@user.id) %>
   <% if @users.exists? %>
     <%= render '/admin/relationships/follow_list', users: @users %>
   <% else %>
     <p>ユーザーはいません</p>
   <% end %>
-
 </div>

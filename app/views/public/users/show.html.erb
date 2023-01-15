@@ -1,11 +1,6 @@
-<div>
-  <%= flash[:notice] %>
-<div>
 <br>
-
 <div class="container">
   <div class="row">
-
     <div class="col-md-5 col-sm-11">
       <h4 class="bg-warning text-center"><i class="fas fa-user"></i>会員情報</h4>
         <span class="box font-weight-bold">
@@ -38,7 +33,7 @@
       </br>
       <h4>
       <% if @new_post_image.errors.any? %>
-        <%= @new_post_image.errors.count %>errors prohibited this obj from being saved:
+        <%= @new_post_image.errors.count %>件のエラーが発生しました
       </h4>
       <ul>
         <% @new_post_image.errors.full_messages.each do |message| %>
@@ -80,45 +75,44 @@
 
      <div class="col-md-7">
       <h4 class="font-weight-bold">☺︎投稿履歴☺︎</h4>
-
-          <div class="post_images-wrap">
-            <% @post_images.each do |post_image| %>
-              <span class="post_images-box1 font-weight-bold">
-                <%= link_to post_image_path(post_image.id) do %>
-                    <%= image_tag post_image.get_image(250,150) %>
-                <% end %>
-                </br>
-                &emsp;
-                <% if post_image.favorited_by?(current_user) %>
-                  <%= link_to post_image_favorites_path(post_image), method: :delete do %>
-                    ❤️<small><%= post_image.favorites.count %></small>
-                  <% end %>
-                <% else %>
-                  <%= link_to post_image_favorites_path(post_image), method: :post do %>
-                    ♡<small><%= post_image.favorites.count %></small>
-                  <% end %>
-                <% end %>
-                <%= link_to post_image_path(post_image.id) do %>
-                   💬<small><%= post_image.post_comments.count %></small>
-                <% end %>
-                👀<small><%= post_image.view_counts.count %></small>
-                <% if @user == current_user %>
-                  <small>
-                    <% if post_image.is_published_flag == false %>
-                      公開
-                    <% else %>
-                      非公開
-                    <% end %>
-                  </small>
-                <% end %>
-                <div class="post_images-comment">
-                  <span class="post_image-body", style="font-size:12px"><%= post_image.created_at.strftime("%Y/%m/%d") %></span><br>
-                  <span class="post_image-body"><%= post_image.title %></span><br>
-                  <span class="post_image-body", style="font-size:12px"><%= post_image.caption %></span><br>
-                </div>
-              </span>
+      <div class="post_images-wrap">
+        <% @post_images.each do |post_image| %>
+          <span class="post_images-box1 font-weight-bold">
+          <%= link_to post_image_path(post_image.id) do %>
+            <%= image_tag post_image.get_image(250,150) %>
+          <% end %>
+          </br>
+          &emsp;
+          <% if post_image.favorited_by?(current_user) %>
+            <%= link_to post_image_favorites_path(post_image), method: :delete do %>
+              ❤️<small><%= post_image.favorites.count %></small>
             <% end %>
-         </div>
+          <% else %>
+            <%= link_to post_image_favorites_path(post_image), method: :post do %>
+              ♡<small><%= post_image.favorites.count %></small>
+            <% end %>
+          <% end %>
+          <%= link_to post_image_path(post_image.id) do %>
+            💬<small><%= post_image.post_comments.count %></small>
+          <% end %>
+          👀<small><%= post_image.view_counts.count %></small>
+          <% if @user == current_user %>
+            <small>
+              <% if post_image.is_published_flag == false %>
+                公開
+              <% else %>
+                非公開
+              <% end %>
+            </small>
+          <% end %>
+          <div class="post_images-comment">
+            <span class="post_image-body", style="font-size:12px"><%= post_image.created_at.strftime("%Y/%m/%d") %></span><br>
+            <span class="post_image-body"><%= post_image.title %></span><br>
+            <span class="post_image-body", style="font-size:12px"><%= post_image.caption %></span><br>
+          </div>
+        </span>
+      <% end %>
+     </div>
     </div>
   </div>
 </div>

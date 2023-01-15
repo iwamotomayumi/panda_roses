@@ -1,56 +1,55 @@
-<div>
-  <%= flash[:notice] %>
-</div>
-
 <br>
-
 <div class="container">
   <div class="row">
     <div class="col-5 text-center">
       <h4 class="bg-warning">☺︎<%= @user.last_name %><%= @user.first_name %>さんの会員情報編集☺︎</h4>
     </div>
   </div>
-
   <div class="row">
-      <%= form_with model: @user, url: admin_user_path(@user.id), method: :patch do |f| %>
-        <table>
-          <tr>
-            <td width="160" height="40">会員ID</td>
-            <td><%= @user.id %></td>
-          </tr>
-
-          <tr>
-            <td width="160" height="40">氏名</td>
-            <td><%= f.text_field :last_name %>&nbsp;&nbsp;&nbsp;&nbsp;
-                <%= f.text_field :first_name %></td>
-          </tr>
-          <tr>
-            <td width="160" height="40">フリガナ</td>
-            <td><%= f.text_field :last_name_kana %>&nbsp;&nbsp;&nbsp;&nbsp;
-                <%= f.text_field :first_name_kana %></td>
-          </tr>
-          <tr>
-           <td class="align="left" valign="top"" width="160" >プロフィール</td>
-            <td><%= f.text_area :introduction, :size=>"35x7" %></td>
-          </tr>
-          <tr>
-            <td width="160" height="40">メールアドレス</td>
-            <td><%= f.text_field :email %></td>
-          </tr>
-          <tr>
-            <td width="160" height="40">電話番号</td>
-            <td><%= f.text_field :telephone_number %></td>
-          </tr>
-          <tr>
-            <td width="160" height="40">会員ステータス</td>
-            <td><%= f.radio_button :is_deleted, false %>有効 &nbsp;
-                <%= f.radio_button :is_deleted, true %>退会</td>
-          </tr>
-          <tr>
-            <td width="160" height="80"><%= link_to "<戻る", admin_user_path(@user.id) %></td>
-            <td><%= f.submit "変更を保存", class:"btn btn-success" %></td>
-          </tr>
-        </table>
-      <% end %>
+    <%= form_with model: @user, url: admin_user_path(@user.id), method: :patch do |f| %>
+      <table>
+        <tr>
+          <td width="160" height="40">会員ID</td>
+          <td><%= @user.id %></td>
+        </tr>
+        <tr>
+          <td width="160" height="40">氏名</td>
+          <td>
+            <%= f.text_field :last_name %>&nbsp;&nbsp;&nbsp;&nbsp;
+            <%= f.text_field :first_name %>
+          </td>
+        </tr>
+        <tr>
+          <td width="160" height="40">フリガナ</td>
+          <td>
+            <%= f.text_field :last_name_kana %>&nbsp;&nbsp;&nbsp;&nbsp;
+            <%= f.text_field :first_name_kana %>
+          </td>
+        </tr>
+        <tr>
+         <td class="align="left" valign="top"" width="160" >プロフィール</td>
+          <td><%= f.text_area :introduction, :size=>"35x7" %></td>
+        </tr>
+        <tr>
+          <td width="160" height="40">メールアドレス</td>
+          <td><%= f.text_field :email %></td>
+        </tr>
+        <tr>
+          <td width="160" height="40">電話番号</td>
+          <td><%= f.text_field :telephone_number %></td>
+        </tr>
+        <tr>
+          <td width="160" height="40">会員ステータス</td>
+          <td>
+            <%= f.radio_button :is_deleted, false %>有効 &nbsp;
+            <%= f.radio_button :is_deleted, true %>退会
+          </td>
+        </tr>
+        <tr>
+          <td width="160" height="80"><%= link_to "<戻る", admin_user_path(@user.id) %></td>
+          <td><%= f.submit "変更を保存", class:"btn btn-success" %></td>
+        </tr>
+      </table>
+    <% end %>
   </div>
 </div>

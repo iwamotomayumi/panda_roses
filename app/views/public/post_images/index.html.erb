@@ -1,11 +1,6 @@
-  </br>
-  <div>
-    <%= flash[:notice] %>
-  <div>
-  <br>
-
-  <div class="container">
-      <h4 class="font-weight-bold">☺︎みんなの投稿☺︎</h4>
-        <%= render '/public/post_images/post_image_list', post_images: @post_images %>
-        <%= paginate @post_images %>
-    </div>
+<br>
+<div class="container">
+  <h4 class="font-weight-bold">☺︎みんなの投稿☺︎</h4>
+  <%= render '/public/post_images/post_image_list', post_images: @post_images %>
+  <%= paginate @post_images %>
+</div>

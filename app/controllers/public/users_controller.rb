@@ -53,7 +53,6 @@ class Public::UsersController < ApplicationController
   def ensure_guest_user
     @user = User.find(params[:id])
     if @user.last_name == "guest"
-       @user.first_name == "user"
       redirect_to user_path(current_user) , notice: 'ゲストユーザーは会員情報編集画面へ遷移できません。'
     end
   end

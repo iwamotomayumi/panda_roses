@@ -1,6 +1,5 @@
 </br>
 <div class="container">
-
   <h2>☺︎フォロー中☺︎</h2>&emsp;<%= link_to "戻る", admin_user_path(@user.id) %>
   <% if @users.exists? %>
     <%= render '/admin/relationships/follow_list', users: @users %>

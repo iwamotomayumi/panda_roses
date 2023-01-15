@@ -1,17 +1,10 @@
-<div>
-  <%= flash[:notice] %>
-</div>
-
 </br>
-
   <div class="container">
     <div class="row-12">
       <div class="px-3 mr-auto">
-
         <div class="col-3 text-center">
           <h4 class="bg-warning">投稿編集</h4>
         </div>
-
         <%= form_with model: @post_image, url: post_image_path(@post_image.id), method: :patch do |f| %>
           <table class="lb-5">
             <tr>

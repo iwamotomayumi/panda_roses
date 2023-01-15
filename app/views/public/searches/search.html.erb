@@ -1,14 +1,9 @@
-<div>
-  <%= flash[:notice] %>
-<div>
 <br>
 <div class="container">
   <h4 class="font-weight-bold">☺︎検索結果☺︎</h4>
-
-<% if @range == "会員" %>
+  <% if @range == "会員" %>
     <%= render '/public/relationships/follow_list', users: @users %>
-<% else %>
+  <% else %>
     <%= render '/public/post_images/post_image_list', post_images: @post_images %>
-<% end %>
-
+  <% end %>
 </div>

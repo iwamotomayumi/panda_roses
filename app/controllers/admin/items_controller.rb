@@ -10,7 +10,7 @@ class Admin::ItemsController < ApplicationController
       flash[:notice] = "新規登録しました"
       redirect_to admin_root_path
     else
-      flash[:notice] = "必要事項を入力して下さい"
+      #flash[:notice] = "必要事項を入力して下さい"
       redirect_to admin_root_path
     end
   end

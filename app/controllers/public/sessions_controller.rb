@@ -35,8 +35,6 @@ def user_state
   if @user.valid_password?(params[:user][:password]) && (@user.is_deleted == true)
     flash[:notice] = "退会済みです。再度ご登録をしてご利用ください。"
     redirect_to new_user_registration_path
-  else
-    flash[:notice] = "ログイン成功！"
   end
 end
 
