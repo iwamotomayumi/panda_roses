@@ -1,17 +1,14 @@
 ja:
   activerecord:
-    models:
-      item: 商品
     attributes:
       item:
-        image: 商品の画像
-        name: 商品名
-        introduction: 商品の説明
-        price: 価格
-    views:
-      pagination:
-        first: '<<'
-        last: '>>'
-        previous: '<'
-        next: '>'
-        truncate: '...'
+        image: "画像"
+        name: "商品名"
+        introduction: "商品説明"
+        price: "税抜価格"
+  views:
+    pagination:
+      first: "≪"
+      previous: "<"
+      next: ">"
+      last: "≫"

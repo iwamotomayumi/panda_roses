@@ -18,6 +18,7 @@ class Public::PostImagesController < ApplicationController
     else
       flash[:notice] = "必要事項を入力して下さい"
       redirect_to user_path(current_user)
+      #render template: "public/users/show"
     end
   end
 

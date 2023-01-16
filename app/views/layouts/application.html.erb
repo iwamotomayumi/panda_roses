@@ -9,6 +9,7 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
+
   <body class="d-flex flex-column vh-100">
     <header class="border-bottom shadow-sm">
       <nav class="navbar navbar-expand-lg navbar-light">
@@ -16,7 +17,11 @@
           <div class="navbar-brand p-3">
             <h3>🐻panda_roses🌹</h3>
           </div>
-           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+          <%# deivseのフラッシュメッセージを表示 %>
+          <p class="notice"><%= notice %></p>
+          <p class="alert"><%= alert %></p>
+
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
                         aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -44,60 +49,59 @@
                       <%= f.submit "検索", class: "btn btn-primary" %>
                     <% end %>
                   </p>
-                 </div>
-                </ul>
-                <% elsif admin_signed_in? %>
-                <ul class="navbar-nav ml-auto">
-                 <div class="form-inline text-right">
+                </div>
+              </ul>
+            <% elsif admin_signed_in? %>
+              <ul class="navbar-nav ml-auto">
+               <div class="form-inline text-right">
+                <p class="nav-item">
+                  <%= link_to "TOP", admin_root_path %>
+                </p>
+                <p class="nav-item">
+                  <%= link_to "会員一覧", admin_users_path %>
+                </p>
+                <p class="nav-item">
+                  <%= link_to "投稿一覧", admin_post_images_path %>
+                </p>
+                <p class="nav-item">
+                  <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
+                </p>
+                <p class="nav-item">
+                  <%= form_with url: admin_search_path, method: :get, local: :true do |f| %>
+                    <%= f.select :range, options_for_select([['会員'], ['投稿']]) %>
+                    <%= f.text_field :word, placeholder: "キーワード検索", class: "form-control" %>
+                    <%= f.submit "検索", class: "btn btn-primary" %>
+                  <% end %>
+                </p>
+               </div>
+              </ul>
+              <% else %>
+              <ul class="navbar-nav ml-auto">
+                <div class="form-inline text-right">
                   <p class="nav-item">
-                    <%= link_to "TOP", admin_root_path %>
+                     <%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, class: "btn btn-secondary btn-sm btn-block mb-3 sign_in", method: :post %>
                   </p>
                   <p class="nav-item">
-                    <%= link_to "会員一覧", admin_users_path %>
+                    <%= link_to "TOP", root_path %>
+                  </p>
+                   <p class="nav-item">
+                    <%= link_to "新規登録", new_user_registration_path %>
                   </p>
                   <p class="nav-item">
-                    <%= link_to "投稿一覧", admin_post_images_path %>
+                    <%= link_to "ログイン", new_user_session_path %>
                   </p>
-                  <p class="nav-item">
-                    <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
-                  </p>
-                  <p class="nav-item">
-                    <%= form_with url: admin_search_path, method: :get, local: :true do |f| %>
-                      <%= f.select :range, options_for_select([['会員'], ['投稿']]) %>
-                      <%= f.text_field :word, placeholder: "キーワード検索", class: "form-control" %>
-                      <%= f.submit "検索", class: "btn btn-primary" %>
-                    <% end %>
-                  </p>
-                 </div>
-                </ul>
-                <% else %>
-                 <ul class="navbar-nav ml-auto">
-                  <div class="form-inline text-right">
-                    <p class="nav-item">
-                       <%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, class: "btn btn-secondary btn-sm btn-block mb-3 sign_in", method: :post %>
-                    </p>
-                    <p class="nav-item">
-                      <%= link_to "TOP", root_path %>
-                    </p>
-                     <p class="nav-item">
-                      <%= link_to "新規登録", new_user_registration_path %>
-                    </p>
-                    <p class="nav-item">
-                      <%= link_to "ログイン", new_user_session_path %>
-                    </p>
-                  </div>
-                </ul>
-               <% end %>
-            </div>
+                </div>
+              </ul>
+            <% end %>
           </div>
-       </nav>
+        </div>
+      </nav>
     </header>
+
     <main class="mb-auto">
-      <%# deivseのフラッシュメッセージを表示 %>
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
       <%= yield %>
     </main>
+
     <footer class="bg-white text-black text-center">
          ☺︎ I wish you all the best of luck ☺︎
     </footer>

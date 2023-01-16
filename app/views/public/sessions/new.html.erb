@@ -14,16 +14,6 @@
     </div>
   </div>
 
-  <h4>
-    <% if @user.errors.any? %>
-      <%= @user.errors.count %>errors prohibited this obj from being saved:
-      <ul>
-        <% @user.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    <% end %>
-  </h4>
   <div class="row">
     <div class="col-2"></div>
       <%= form_with model: @user, url: user_session_path, local: true do |f| %>

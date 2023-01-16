@@ -26,54 +26,45 @@
           <span><%= @user.introduction %></span>
           <br>
         </span>
-      <% if @user == current_user %>
-        <%= link_to "会員情報編集", edit_user_path(current_user), class:"btn btn-success" %>
-      <% end %>
-      </br>
-      </br>
-      <h4>
-      <% if @new_post_image.errors.any? %>
-        <%= @new_post_image.errors.count %>件のエラーが発生しました
-      </h4>
-      <ul>
-        <% @new_post_image.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
+
+        <% if @user == current_user %>
+          <%= link_to "会員情報編集", edit_user_path(current_user), class:"btn btn-success" %>
         <% end %>
-      </ul>
-      <% end %>
+        </br>
+        </br>
 
-      <% if @user == current_user %>
-        <h4 class="bg-warning text-center">投稿🤳</h4>
-         <%= form_with model: @new_post_image, url: '/post_images', method: :post  do |f| %>
-         <table class="table table-border">
-          <tr>
-            <td style="font-size:12px">投稿画像</td>
-            <td style="font-size:12px"><%= f.file_field :image, accept: "image/*" %></td>
-          </tr>
-
-          <tr>
-            <td style="font-size:12px ">タイトル</td>
-            <td style="font-size:12px"><%= f.text_field :title, placeholder: "タイトル", :size=>"20"%></td>
-          </tr>
-          <tr>
-            <td style="font-size:12px">投稿説明</td>
-            <td style="font-size:12px"><%= f.text_area :caption, placeholder: "投稿文", :size=>"40x7" %></td>
-          </tr>
-          <tr>
-            <td><%= f.submit "投稿する", class: "btn btn-primary" %></td>
-            <td>
-                <%= f.label :is_published_flag, "非公開", value: true %>
-                <%= f.radio_button :is_published_flag, 'true' %>
-                <%= f.label :is_published_flag, "公開", value: false %>
-                <%= f.radio_button :is_published_flag,'false' %>
-            </td>
-          </tr>
-         </table>
+        <% if @user == current_user %>
+          <h4 class="bg-warning text-center">投稿🤳</h4>
+           <%= form_with model: @new_post_image, url: '/post_images', method: :post  do |f| %>
+             <%= render 'layouts/error_messages', resource: @new_post_image %>
+             <table class="table table-border">
+              <tr>
+                <td style="font-size:12px">投稿画像</td>
+                <td style="font-size:12px"><%= f.file_field :image, accept: "image/*" %></td>
+              </tr>
+              <tr>
+                <td style="font-size:12px ">タイトル</td>
+                <td style="font-size:12px"><%= f.text_field :title, placeholder: "タイトル", :size=>"20"%></td>
+              </tr>
+              <tr>
+                <td style="font-size:12px">投稿説明</td>
+                <td style="font-size:12px"><%= f.text_area :caption, placeholder: "投稿文", :size=>"40x7" %></td>
+              </tr>
+              <tr>
+                <td><%= f.submit "投稿する", class: "btn btn-primary" %></td>
+                <td>
+                  <%= f.label :is_published_flag, "非公開", value: true %>
+                  <%= f.radio_button :is_published_flag, 'true' %>
+                  <%= f.label :is_published_flag, "公開", value: false %>
+                  <%= f.radio_button :is_published_flag,'false' %>
+                </td>
+              </tr>
+          </table>
         <% end %>
       <% end %>
     </div>
 
-     <div class="col-md-7">
+    <div class="col-md-7">
       <h4 class="font-weight-bold">☺︎投稿履歴☺︎</h4>
       <div class="post_images-wrap">
         <% @post_images.each do |post_image| %>
