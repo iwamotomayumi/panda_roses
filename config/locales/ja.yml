@@ -6,6 +6,10 @@ ja:
         name: "商品名"
         introduction: "商品説明"
         price: "税抜価格"
+      post_image:
+        image: "画像"
+        title: "タイトル"
+        caption: "投稿文"
   views:
     pagination:
       first: "≪"

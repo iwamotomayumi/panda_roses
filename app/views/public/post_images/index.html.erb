@@ -1,6 +1,17 @@
 <br>
 <div class="container">
   <h4 class="font-weight-bold">☺︎みんなの投稿☺︎</h4>
-  <%= render '/public/post_images/post_image_list', post_images: @post_images %>
-  <%= paginate @post_images %>
+  <div class= "row">
+    <div class="col-md-12 col-sm-10">
+      <%= render '/public/post_images/post_image_list', post_images: @post_images %>
+    </div>
+  </div>
+  <div class= "row">
+    <div class="col-5"></div>
+      <div class= "col-2 text-center">
+        <div class="pagination">
+          <%= paginate @post_images %>
+       </div>
+    </div>
+  </div>
 </div>

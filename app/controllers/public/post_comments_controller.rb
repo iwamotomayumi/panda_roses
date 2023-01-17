@@ -8,7 +8,7 @@ class Public::PostCommentsController < ApplicationController
       flash[:notice] = "コメントを投稿しました"
       redirect_to post_image_path(post_image)
     else
-      flash[:notice] = "必要事項を入力して下さい"
+      flash[:notice] = "コメントを入力して下さい"
       redirect_to post_image_path(post_image)
     end
   end

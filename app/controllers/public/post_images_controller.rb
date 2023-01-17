@@ -2,7 +2,7 @@ class Public::PostImagesController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @post_images = PostImage.published.order(created_at: :desc).page(params[:page]).per(15)
+    @post_images = PostImage.published.order(created_at: :desc).page(params[:page]).per(10)
   end
 
   def new
@@ -16,8 +16,14 @@ class Public::PostImagesController < ApplicationController
       flash[:notice] = "新規投稿しました"
       redirect_to user_path(current_user)
     else
-      flash[:notice] = "必要事項を入力して下さい"
+      flash[:notice] = "入力不足しています"
       redirect_to user_path(current_user)
+      #@user = User.find_by(id: params[@post_image.id])
+      #if @user == current_user
+        #@post_images = @user.post_images.order(created_at: :desc)
+      #else
+       #@post_images = @user.post_images.published.order(created_at: :desc)
+      #end
       #render template: "public/users/show"
     end
   end

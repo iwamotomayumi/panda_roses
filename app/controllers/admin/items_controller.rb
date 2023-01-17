@@ -10,8 +10,9 @@ class Admin::ItemsController < ApplicationController
       flash[:notice] = "新規登録しました"
       redirect_to admin_root_path
     else
-      flash[:notice] = "必要事項を入力して下さい"
-      redirect_to admin_root_path
+      @items_desc = Item.order(created_at: :desc).limit(4)
+      @items = Item.order(created_at: :desc).page(params[:page]).per(5)
+      render template: "admin/homes/top"
     end
   end
 

@@ -23,6 +23,12 @@
    font-family: 'Kosugi Maru', sans-serif;
 }
 
+/*ページネーション自体のデザイン*/
+.pagination {
+  border: none;     /*枠線をなくす*/
+  color: #696969;   /*文字の色を変える*/
+}
+
 nav {
   width: 100%;
   margin: 0 auto;

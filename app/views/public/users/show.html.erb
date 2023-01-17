@@ -32,7 +32,7 @@
         <% end %>
         </br>
         </br>
-
+        <%= render 'layouts/error_messages', resource: @new_post_image %>
         <% if @user == current_user %>
           <h4 class="bg-warning text-center">投稿🤳</h4>
            <%= form_with model: @new_post_image, url: '/post_images', method: :post  do |f| %>
@@ -47,7 +47,7 @@
                 <td style="font-size:12px"><%= f.text_field :title, placeholder: "タイトル", :size=>"20"%></td>
               </tr>
               <tr>
-                <td style="font-size:12px">投稿説明</td>
+                <td style="font-size:12px">投稿文</td>
                 <td style="font-size:12px"><%= f.text_area :caption, placeholder: "投稿文", :size=>"40x7" %></td>
               </tr>
               <tr>
