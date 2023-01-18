@@ -51,7 +51,10 @@
         <tr>
           <td></td>
           <td>
-            <%= link_to "編集する", edit_admin_user_path(@user.id), class:"btn btn-success" %>
+            <%= link_to edit_admin_user_path(@user.id) do %>
+              <i class="fas fa-user-edit" style="color: #00bb85"></i>
+              <small style="color: #00bb85">編集</small>
+            <% end %>
           </td>
         </tr>
       </table>

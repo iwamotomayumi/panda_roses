@@ -1,5 +1,9 @@
+</br>
 <div class="container">
-  <h4 class="font-weight-bold">☺︎みんなの投稿☺︎</h4>
+  <div class="col-1"></div>
+  <div class="col-3 text-center ml-30">
+    <h4 class="bg-warning">☺︎みんなの投稿☺︎︎</h4>
+  </div>
   <%= render '/admin/post_images/post_image_list', post_images: @post_images %>
   <%= paginate @post_images %>
 </div>

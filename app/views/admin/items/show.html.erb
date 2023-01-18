@@ -37,15 +37,13 @@
            <small>(¥<%= @item.price.to_s(:delimited) %>)</small>
         </td>
       </tr>
+      <tr>
+        <td><%= link_to "編集する", edit_admin_item_path(@item.id), class:"btn btn-success" %></td>
+        <td><%= link_to admin_item_path(@item.id), method: :delete, "data-confirm" => "この投稿を削除しますか？" do %>
+          <i class="fas fa-trash-alt" style="color: #ff7f7f;"></i>
+        <% end %></td>
+      </tr>
     </table>
    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-6"></div>
-    <div class="col-5">
-      <%= link_to "編集する", edit_admin_item_path(@item.id), class:"btn btn-success" %>
-      <%= link_to "削除", admin_item_path(@item.id), method: :delete, data: {confirm: "本当に削除しますか？"}, class:"btn btn-danger" %>
-    </div>
   </div>
 </div>

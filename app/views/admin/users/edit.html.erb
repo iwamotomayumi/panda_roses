@@ -13,16 +13,26 @@
           <td><%= @user.id %></td>
         </tr>
         <tr>
-          <td width="160" height="40">氏名</td>
+          <td width="160" height="40">名前（性）</td>
           <td>
-            <%= f.text_field :last_name %>&nbsp;&nbsp;&nbsp;&nbsp;
+            <%= f.text_field :last_name %>
+          </td>
+        </tr>
+        <tr>
+          <td width="160" height="40">名前（名）</td>
+          <td>
             <%= f.text_field :first_name %>
           </td>
         </tr>
         <tr>
-          <td width="160" height="40">フリガナ</td>
+          <td width="160" height="40">フリガナ（セイ）</td>
           <td>
-            <%= f.text_field :last_name_kana %>&nbsp;&nbsp;&nbsp;&nbsp;
+            <%= f.text_field :last_name_kana %>
+          </td>
+        </tr>
+        <tr>
+          <td width="160" height="40">フリガナ（メイ）</td>
+          <td>
             <%= f.text_field :first_name_kana %>
           </td>
         </tr>
@@ -47,7 +57,7 @@
         </tr>
         <tr>
           <td width="160" height="80"><%= link_to "<戻る", admin_user_path(@user.id) %></td>
-          <td><%= f.submit "変更を保存", class:"btn btn-success" %></td>
+          <td><%= f.submit "完了", class:"btn btn-success" %></td>
         </tr>
       </table>
     <% end %>

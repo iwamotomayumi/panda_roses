@@ -1,6 +1,6 @@
 <% if users.exists? %>
   <% users.each do |user| %>
-    <table>
+    <table class="table table-hover table-inverse">
       <tr>
         <td width="100"> <%= image_tag user.get_profile_image(80,80), class:"rounded-circle" %></td>
         <td width="150">
@@ -8,8 +8,8 @@
             <%= user.last_name %><%= user.first_name %>
           <% end %>
         </td>
-        <td width="150">フォロー数: <%= user.followings.count %></td>
-        <td width="150">フォロワー数: <%= user.followers.count %></td>
+        <td width="150">☺︎フォロー数: <%= user.followings.count %></td>
+        <td width="150">☺︎フォロワー数: <%= user.followers.count %></td>
       </tr>
     </table>
   <% end %>

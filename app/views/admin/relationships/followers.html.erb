@@ -1,6 +1,12 @@
 </br>
 <div class="container">
-  <h2>☺︎フォロワー☺︎</h2>&emsp;<%= link_to "戻る", admin_user_path(@user.id) %>
+  <div class="row">
+    <div class="col-2 text-center ml-30">
+      <h4 class="bg-warning">☺︎フォロワー☺︎</h2>&emsp;<%= link_to "<戻る", admin_user_path(@user.id) %>☺︎</h4>
+    </div>
+  </div>
+  </br>
+  </br>
   <% if @users.exists? %>
     <%= render '/admin/relationships/follow_list', users: @users %>
   <% else %>
