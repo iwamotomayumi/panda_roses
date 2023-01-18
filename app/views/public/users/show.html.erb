@@ -1,5 +1,6 @@
 <br>
 <div class="container">
+  <%= render 'layouts/error_messages', resource: @new_post_image %>
   <div class="row">
     <div class="col-md-5 col-sm-11">
       <h4 class="bg-warning text-center"><i class="fas fa-user"></i>会員情報</h4>
@@ -33,8 +34,6 @@
 
         </br>
         </br>
-        <%= render 'layouts/error_messages', resource: @new_post_image %>
-
         <% if @user == current_user %>
           <h4 class="bg-warning text-center">投稿🤳</h4>
            <%= form_with model: @new_post_image, url: '/post_images', method: :post  do |f| %>

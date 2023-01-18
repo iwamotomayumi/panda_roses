@@ -16,10 +16,9 @@ class Public::PostImagesController < ApplicationController
       flash[:notice] = "新規投稿しました"
       redirect_to user_path(current_user)
     else
-      flash[:notice] = "入力不足しています"
       @user = current_user
-      @post_images = PostImage.all
-      #@new_post_image = PostImage.new
+      @post_images = @user.post_images.order(created_at: :desc)
+      @post_images = @user.post_images.published.order(created_at: :desc)
       render template: "public/users/show"
     end
   end
