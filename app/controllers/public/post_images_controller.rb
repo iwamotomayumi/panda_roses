@@ -10,21 +10,17 @@ class Public::PostImagesController < ApplicationController
   end
 
   def create
-    @post_image = PostImage.new(post_image_params)
-    @post_image.user_id = current_user.id
-    if @post_image.save
+    @new_post_image = PostImage.new(post_image_params)
+    @new_post_image.user_id = current_user.id
+    if @new_post_image.save
       flash[:notice] = "新規投稿しました"
       redirect_to user_path(current_user)
     else
       flash[:notice] = "入力不足しています"
-      redirect_to user_path(current_user)
-      #@user = User.find_by(id: params[@post_image.id])
-      #if @user == current_user
-        #@post_images = @user.post_images.order(created_at: :desc)
-      #else
-       #@post_images = @user.post_images.published.order(created_at: :desc)
-      #end
-      #render template: "public/users/show"
+      @user = current_user
+      @post_images = PostImage.all
+      #@new_post_image = PostImage.new
+      render template: "public/users/show"
     end
   end
 

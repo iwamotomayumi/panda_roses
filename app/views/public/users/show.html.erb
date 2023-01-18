@@ -28,15 +28,17 @@
         </span>
 
         <% if @user == current_user %>
-          <%= link_to "会員情報編集", edit_user_path(current_user), class:"btn btn-success" %>
+          <%= link_to "プロフィール編集", edit_user_path(current_user), class:"btn btn-success" %>
         <% end %>
+
         </br>
         </br>
         <%= render 'layouts/error_messages', resource: @new_post_image %>
+
         <% if @user == current_user %>
           <h4 class="bg-warning text-center">投稿🤳</h4>
            <%= form_with model: @new_post_image, url: '/post_images', method: :post  do |f| %>
-             <%= render 'layouts/error_messages', resource: @new_post_image %>
+
              <table class="table table-border">
               <tr>
                 <td style="font-size:12px">投稿画像</td>
