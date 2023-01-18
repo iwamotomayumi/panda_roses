@@ -43,14 +43,15 @@
         </tr>
         <tr>
           <td></td>
-          <td><%= link_to edit_admin_post_image_path(@post_image.id) do %>
-                <i class="fas fa-edit" style="color: #00bb85"></i>
-                <small style="color: #00bb85">編集</small>
-              <% end %>
-              &emsp;&emsp;
-              <%= link_to admin_post_image_path(@post_image.id), method: :delete, "data-confirm" => "この投稿を削除しますか？" do %>
-                <i class="style fas fa-trash-alt" style="color: #ff7f7f;"></i>
-              <% end %>
+          <td>
+            <%= link_to edit_admin_post_image_path(@post_image.id) do %>
+              <i class="fas fa-edit" style="color: #00bb85"></i>
+              <small style="color: #00bb85">編集</small>
+            <% end %>
+            &emsp;&emsp;
+            <%= link_to admin_post_image_path(@post_image.id), method: :delete, "data-confirm" => "この投稿を削除しますか？" do %>
+              <i class="style fas fa-trash-alt" style="color: #ff7f7f;"></i>
+            <% end %>
           </td>
         </tr>
       </table>

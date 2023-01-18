@@ -21,7 +21,7 @@
       <table class="table table-border">
         <tr>
           <td style="font-size:12px" width="80">投稿者</td>
-          <td style="font-size:12px">
+          <td style="font-size:15px">
             <%= link_to  user_path(@post_image.user.id) do %>
               <%= @post_image.user.last_name %><%= @post_image.user.first_name %>
             <% end %>
@@ -29,43 +29,53 @@
         </tr>
         <tr>
           <td style="font-size:12px">投稿日</td>
-          <td style="font-size:12px"><%= @post_image.created_at.strftime('%Y/%m/%d') %></td>
+          <td style="font-size:15px"><%= @post_image.created_at.strftime('%Y/%m/%d') %></td>
         </tr>
         <tr>
           <td style="font-size:12px">タイトル</td>
-          <td style="font-size:12px"><%= @post_image.title %></td>
+          <td style="font-size:15px"><%= @post_image.title %></td>
         </tr>
         <tr>
           <td style="font-size:12px">投稿説明</td>
-          <td style="font-size:12px"><%= @post_image.caption %></td>
+          <td style="font-size:15px"><%= @post_image.caption %></td>
         </tr>
          <% if @post_image.user == current_user %>
         <tr>
           <td style="font-size:12px">公開設定</td>
-          <td style="font-size:12px"><% if @post_image.is_published_flag == false %>
+          <td style="font-size:15px"><% if @post_image.is_published_flag == false %>
                                       公開
                                     <% else %>
                                       非公開
                                     <% end %>
           </td>
         </tr>
-          <tr>
-            <td></td>
-            <td><%= link_to "投稿を編集", edit_post_image_path(@post_image.id), class:"btn btn-success" %></td>
-            <td><%= link_to "投稿を削除", post_image_path(@post_image.id), method: :delete, "data-confirm" => "この投稿を削除しますか？", class:"btn btn-sm btn-danger" %></td>
-          </tr>
-        <% end %>
-      </table>
-    </div>
+        <tr>
+          <td>
+            <%= link_to edit_post_image_path(@post_image.id) do %>
+              <i class="fas fa-edit" style="color: #00bb85"></i>
+              <small style="color: #00bb85">編集</small>
+            <% end %>
+           </td>
+          <td>
+            &emsp;&emsp;&emsp;&emsp;
+            <%= link_to post_image_path(@post_image.id), method: :delete, "data-confirm" => "この投稿を削除しますか？" do %>
+              <i class="style fas fa-trash-alt" style="color: #ff7f7f;"></i>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
 
-    <div class="col-md-6">
-      ☺投稿へのコメント☺︎︎
+  <div class="col-md-6">
+    <h4 class="bg-warning text-center">☺投稿へのコメント☺</h4>
+
       <%= form_with model: [@post_image, @post_comment] do |f| %>
-        <%= f.text_area :comment, rows: '5', placeholder: "コメントをここにどうぞ" %>
-        <%= f.submit "コメント投稿", class: "btn btn-primary" %>
+        <%= f.text_area :comment,:size=>"50x4", placeholder: "コメントをここにどうぞ" %>
+        <%= f.submit "💬 投稿", class: "btn btn-primary" %>
       <% end %>
       </br>
-      ☺︎コメント一覧☺︎
+      <h4 class="bg-warning text-center"> ☺︎コメント一覧☺</h4>︎
         <% @post_image.post_comments.order(created_at: :desc).each do |post_comment| %>
           <table>
             <tr>
@@ -80,7 +90,9 @@
               <td width="300"><%= post_comment.comment %></td>
               <td width="70">
                 <% if post_comment.user == current_user %>
-                  <%= link_to "削除", post_image_post_comment_path(post_comment.post_image, post_comment), method: :delete, "data-confirm" => "コメントを削除しますか？", class:"btn btn-danger" %>
+                  <%= link_to post_image_post_comment_path(post_comment.post_image, post_comment), method: :delete, "data-confirm" => "コメントを削除しますか？" do %>
+                    <i class="style fas fa-trash-alt" style="color: #ff7f7f;"></i>
+                  <% end %>
                 <% end %>
               </td>
             </tr>

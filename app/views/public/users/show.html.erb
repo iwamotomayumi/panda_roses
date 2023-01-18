@@ -29,13 +29,16 @@
         </span>
 
         <% if @user == current_user %>
-          <%= link_to "プロフィール編集", edit_user_path(current_user), class:"btn btn-success" %>
+          <%= link_to edit_user_path(current_user) do %>
+            <i class="fas fa-user-edit" style="color: #00bb85"></i>
+            <small style="color: #00bb85">編集</small>
+          <% end %>
         <% end %>
 
         </br>
         </br>
         <% if @user == current_user %>
-          <h4 class="bg-warning text-center">投稿🤳</h4>
+          <h4 class="bg-warning text-center">新規投稿🤳</h4>
            <%= form_with model: @new_post_image, url: '/post_images', method: :post  do |f| %>
 
              <table class="table table-border">
@@ -65,8 +68,9 @@
       <% end %>
     </div>
 
-    <div class="col-md-7">
-      <h4 class="font-weight-bold">☺︎投稿履歴☺︎</h4>
+    <div class="col-md-7 col-sm-11 text-center">
+      <h4 class="bg-warning">☺︎投稿履歴☺︎</h4>
+
       <div class="post_images-wrap">
         <% @post_images.each do |post_image| %>
           <span class="post_images-box1 font-weight-bold">
