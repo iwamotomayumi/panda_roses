@@ -4,34 +4,34 @@
     <div class="px-3 mr-auto">
 
     <div class="col-1"></div>
-    <div class="col-5 text-center">
-      <h4 class="bg-warning">新規会員登録</h4>
+    <div class="col-7">
+      <h4>🌹Sign Up🌹 </h4>
     </div>
 
     <%= form_with model: @user, url: user_registration_path do |f| %>
       <%= render "public/shared/error_messages", resource: resource %>
 
-    <div class="col-md-12 text-center">
+    <div class="col-md-12 col-sm-12">
       <table class="table table-borderless">
         <tr>
           <td>名前</td>
-          <td>（姓)</td>
+          <td><small>（姓)</small></td>
           <td><%= f.text_field :last_name, placeholder: "令和" %></td>
         </tr>
         <tr>
           <td></td>
-          <td>（名)</td>
+          <td><small>（名)</small></td>
           <td><%= f.text_field :first_name, placeholder: "道子" %></td>
         </tr>
 
         <tr>
           <td>フリガナ</td>
-          <td>（セイ)</td>
+          <td><small>（セイ)</small></td>
           <td><%= f.text_field :last_name_kana, placeholder: "レイワ" %></td>
         </tr>
         <tr>
           <td></td>
-          <td>（メイ)</td>
+          <td><small>（メイ)</small></td>
           <td><%= f.text_field :first_name_kana, placeholder: "ミチコ" %></td>
         </tr>
 
@@ -60,14 +60,15 @@
         </tr>
 
         <tr>
-          <td></td><td></td>
+          <td><%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, class: "btn btn-outline-secondary btn-sm btn-block mb-3 sign_in", method: :post %></td>
+          <td></td>
           <td><%= f.submit "新規登録", class:"btn btn-success" %></td>
         <tr>
        </table>
       </div>
       <% end %>
 
-      <h2>既に登録済みの方</h2>
+      <h4>既に登録済みの方</h4>
       <%= link_to "こちら", new_user_session_path %>　からログインしてください。
     </div>
   </div>

@@ -68,14 +68,14 @@
   </div>
 
   <div class="col-md-6">
-    <h4 class="bg-warning text-center">☺投稿へのコメント☺</h4>
+    <h4>🌹Comment🌹</h4>
 
       <%= form_with model: [@post_image, @post_comment] do |f| %>
         <%= f.text_area :comment,:size=>"50x4", placeholder: "コメントをここにどうぞ" %>
         <%= f.submit "💬 投稿", class: "btn btn-primary" %>
       <% end %>
       </br>
-      <h4 class="bg-warning text-center"> ☺︎コメント一覧☺</h4>︎
+      <h4> 🌹Comment List🌹</h4>︎
         <% @post_image.post_comments.order(created_at: :desc).each do |post_comment| %>
           <table>
             <tr>

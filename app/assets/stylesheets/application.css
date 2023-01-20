@@ -20,13 +20,21 @@
 }
 
 * {
-   font-family: 'Kosugi Maru', sans-serif;
+  font-family: 'Kaushan', cursive, sans-serif;
 }
 
 /*ページネーション自体のデザイン*/
 .pagination {
   border: none;     /*枠線をなくす*/
   color: #696969;   /*文字の色を変える*/
+}
+
+body {
+   background-color: #FFC0FE;           /* 背景色 */
+   background-image: url("heart-1899776_1920.jpg"); /* 画像 */
+   background-size: cover;               /* 全画面 */
+   background-attachment: fixed;         /* 固定 */
+   background-position: center center;   /* 縦横中央 */
 }
 
 nav {
@@ -58,12 +66,13 @@ nav {
 }
 
 .top_text {
-  color: black; /* 文字色 */
-  font-size: 24px; /* 文字の大きさ */
+  text-align: center;
+  font-size: 4vmax;
+  color: black;
   font-weight: bold;
   position: absolute;
-  left: 45%;
-  top: 15%;
+  left: 50%;
+  top: 30%;
 }
 
 .item-box1 {
@@ -89,7 +98,6 @@ nav {
   flex-wrap: wrap;
   display: flex;
   justify-content: space-around;
-  background-color: white;
   padding: 5px;
   border-color: black;
   overflow: hidden;
@@ -101,7 +109,6 @@ nav {
   flex-wrap: wrap;
   display: flex;
   justify-content: space-around;
-  background-color: white;
   padding: 5px;
   border-color: black;
 }
@@ -141,4 +148,9 @@ nav {
   text-overflow: ellipsis;
 }
 
-
+footer {
+  width: 100%;
+  margin: 0 auto;
+  border-top: solid 0.7px #000000;
+  border-bottom: solid 0.7px #000000;
+}

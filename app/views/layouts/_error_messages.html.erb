@@ -1,6 +1,6 @@
 <% if resource.errors.any? %>
   <div id="error_explanation">
-    <h2 class="text-danger">↓入力が不足しています😭</h2>
+    <h2 class="text-danger">必要事項を入力してください。</h2>
     <ul>
       <% resource.errors.full_messages.each do |message| %>
         <li class="text-danger"><%= message %></li>
