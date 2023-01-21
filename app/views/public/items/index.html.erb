@@ -10,7 +10,7 @@
       <span class="item-box1 font-weight-bold">
         <%= link_to item_path(item.id) do %>
           <% if item.image.present? %>
-            <%= image_tag item.image, size: "150x100" %>
+            <%= image_tag item.image, size: "150x150" %>
           <% else %>
             <%= image_tag 'default-image.jpg', size: "150x100" %>
           <% end %>

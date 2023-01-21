@@ -1,49 +1,59 @@
+</br>
 <div class="container">
   <div class="row">
-    <div class="col-md-5">
+    <div class="col-6"></div>
+    <div class="col-6">
       </br>
-      <h5 style="color: #800000">〜ハンドメイド仲間と繋がろう〜</h5>
-      <h6>ハンドメイドが好きな方と繋がりたくてSNSを始めました。<br>
-          会員でない方も 🐼🌹 の商品は閲覧できます
+      <h5 style="color: #800000">🌹ハンドメイドのお店🌹</h5>
+      <h6>
+        マルシェなどで出店しております。
       </h6>
-      </br>
-      <h6>ハンドメイドのお店のオーナーをしています</h6>
       <small>
-        お店の名前の由来は娘が好きなパンダとお花です。<br>
+        PandaRosesの名前の由来は</br>
+        娘がパンダとお花が好きだからです。</br>
+      </small>
+
+      </br>
+      <h5 style="color: #800000">🌹PandaRses 仲間と繋がろう🌹</h5>
+      <h6>PandaRsesの商品を通じて交流の場ができればと思いSNSを始めました。</br>
+      <small>
+        会員でない方も PandaRses の商品は閲覧していただけます。</br>
         ※このお店は架空のものです
       </small>
-    </div>
-  </div>
-  </br>
-  <div class="row">
-    <h4 class="font-weight-bold">
-      ☺︎新作です☺︎
-      <smal>
-        <% if user_signed_in? %>
-          <%= link_to items_path do %>
-            <%= "商品一覧を見る" %>
-          <% end %>
+      </h6>
+      </br>
+      <h6 style="color: #800000">
+        🌹New Item🌹
+        <%= link_to items_path do %>
+          <%= "Item AllList>>" %>
         <% end %>
-      </smal>
-    </h4>
-    <div class="item-wrap">
-      <% @items_desc = Item.order(created_at: :desc).limit(4).each do |item| %>
-        <span class="item-box1 font-weight-bold">
-          <%= link_to item_path(item.id) do %>
-            <% if item.image.present? %>
-              <%= image_tag item.image, size: "150x100" %>
-            <% else %>
-              <%= image_tag 'default-image.jpg', size: "150x100" %>
+      </h6>
+    </dv>
+    <div class="col-6"></div>
+    <div class="col-6">
+      <div class="slider">
+        <div>
+          <% @items.first(1).each do |item| %>
+            <%= link_to item_path(item.id) do %>
+              <%= image_tag item.image, class: "ab-slider" %>
             <% end %>
           <% end %>
-          <div class="item-comment">
-            <span class="item-body", style="font-size:15px"><%= item.created_at.strftime('%Y/%m/%d') %></span><br>
-            <span class="item-body", style="font-size:15px"><%= item.name %></span><br>
-            <span class="item-body", style="font-size:12px"><%= item.introduction %></span><br>
-            <span class="item-title", style="font-size:12px">¥<%= item.add_tax_price.to_s(:delimited) %>（税込）</span>
-          </div>
-        </span>
-      <% end %>
+        </div>
+        <div>
+          <% @items.drop(1).each do |item| %>
+            <%= link_to item_path(item.id) do %>
+              <%= image_tag item.image, class: "ab-slider" %>
+            <% end %>
+          <% end %>
+        </div>
+        <div>
+          <% @items.drop(1).each do |item| %>
+            <%= link_to item_path(item.id) do %>
+              <%= image_tag item.image, class: "ab-slider" %>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
     </div>
   </div>
 </div>

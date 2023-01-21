@@ -1,5 +1,4 @@
 class Public::ItemsController < ApplicationController
-  before_action :authenticate_user!
 
   def index
     @items = Item.order(created_at: :desc).page(params[:page]).per(10)
@@ -9,5 +8,11 @@ class Public::ItemsController < ApplicationController
     @item = Item.find(params[:id])
   end
 
+
+   private
+  # ストロングパラメータ
+  def item_params
+    params.require(:item).permit(:name, :introduction, :price, :image)
+  end
 
 end
