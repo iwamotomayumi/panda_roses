@@ -4,10 +4,11 @@
   <p class="text-center"><br>
     退会すると、会員登録情報や<br>
     これまでの投稿履歴が閲覧できなくなります。<br>
-    退会する場合は、　「退会する」をクリックしてください。
+    退会する場合は、<br>
+    「退会する」をクリックしてください。
   </p>
   <span style="position: absolute; left: 25%;">
-   <%= link_to "<Back", user_path(current_user), class:"btn btn-success" %>&emsp;
+   <%= link_to "<退会しない", user_path(current_user) %>&emsp;
    <%= link_to "退会する", users_withdrawal_path, method: :patch, data: { confilm: "本当に退会しますか？" }, class:"btn btn-danger" %>
   </span>
  </div>

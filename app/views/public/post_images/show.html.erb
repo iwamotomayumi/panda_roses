@@ -2,6 +2,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-5">
+      <h4 style="color: #800000">🌹Post Details🌹</h4>
       <%= image_tag @post_image.get_image(250,150) %></br>
       </br>
       <p><%= image_tag @post_image.user.get_profile_image(50,50), class:"rounded-circle" %>
@@ -60,6 +61,7 @@
             &emsp;&emsp;&emsp;&emsp;
             <%= link_to post_image_path(@post_image.id), method: :delete, "data-confirm" => "この投稿を削除しますか？" do %>
               <i class="style fas fa-trash-alt" style="color: #ff7f7f;"></i>
+              <small style="color: #ff7f7f;">削除</small>
             <% end %>
           </td>
         </tr>
@@ -68,11 +70,11 @@
   </div>
 
   <div class="col-md-6">
-    <h4>🌹Comment🌹</h4>
+    <h4 style="color: #800000">🌹Comment🌹</h4>
 
       <%= form_with model: [@post_image, @post_comment] do |f| %>
         <%= f.text_area :comment,:size=>"50x4", placeholder: "コメントをここにどうぞ" %>
-        <%= f.submit "💬 投稿", class: "btn btn-primary" %>
+        <%= f.submit "投稿", class: "btn btn-primary" %>
       <% end %>
       </br>
       <h4> 🌹Comment List🌹</h4>︎
@@ -92,6 +94,7 @@
                 <% if post_comment.user == current_user %>
                   <%= link_to post_image_post_comment_path(post_comment.post_image, post_comment), method: :delete, "data-confirm" => "コメントを削除しますか？" do %>
                     <i class="style fas fa-trash-alt" style="color: #ff7f7f;"></i>
+                    <small style="color: #ff7f7f;">削除</small>
                   <% end %>
                 <% end %>
               </td>

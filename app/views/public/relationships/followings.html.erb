@@ -1,6 +1,7 @@
 </br>
 <div class="container">
-  <h2>☺︎フォロー中☺︎</h2>&emsp;<%= link_to "戻る", user_path(@user.id) %>
+  <h4 style="color: #800000">🌹Following List🌹︎</h4>
+
   <% if @users.exists? %>
     <%= render '/public/relationships/follow_list', users: @users %>
   <% else %>

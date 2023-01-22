@@ -79,7 +79,10 @@
             </ul>
             <% else %>
             <ul class="navbar-nav ml-auto">
-              <div class="form-inline text-right">
+              <div class="form-inline text-center">
+                <p class="nav-item">
+                  <%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, class: "btn btn-outline-secondary btn-sm btn-block mb-3 sign_in", method: :post %>
+                </p>
                 <p class="nav-item">
                   <%= link_to "TOP", root_path %>
                 </p>

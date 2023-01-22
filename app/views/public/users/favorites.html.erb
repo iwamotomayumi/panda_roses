@@ -1,5 +1,7 @@
+</br>
 <div class="container">
-  <h4 class="font-weight-bold">☺いいね一覧☺︎</h4>
+  <h4  style="color: #800000">🌹いいねList🌹︎</h4>&emsp;
+
   <div class="post_images-wrap">
 <% if @favorite_list.present? %>
   <% @favorite_list.each do |post_image| %>
@@ -33,7 +35,7 @@
         <% end %>
       </span>
       <span class="item-title", style="font-size:12px"><%= post_image.created_at.strftime('%Y/%m/%d') %></span></br>
-      <span class="item-title", style="font-size:12px"><%= post_image.title %></span></br>
+      <span class="item-title"><%= post_image.title %></span></br>
       <span class="item-title", style="font-size:12px"><%= post_image.caption %></span>
     </div>
   </span>
