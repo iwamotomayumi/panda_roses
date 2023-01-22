@@ -1,8 +1,9 @@
 class PostImage < ApplicationRecord
-
+  
   belongs_to :user
   has_many :post_comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
+  has_many :favorited_users, through: :favorites, source: :user
   has_many :view_counts, dependent: :destroy
 
    # 公開・非公開機能

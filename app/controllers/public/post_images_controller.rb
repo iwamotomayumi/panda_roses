@@ -2,7 +2,9 @@ class Public::PostImagesController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @post_images = PostImage.published.order(created_at: :desc).page(params[:page]).per(10)
+    @post_images = PostImage.published.includes(:favorited_users).sort {|a,b| b.favorited_users.size <=> a.favorited_users.size}
+    #.page(params[:page]).per(10)
+    #@post_images = PostImage.published.order(created_at: :desc).page(params[:page]).per(15)
   end
 
   def new

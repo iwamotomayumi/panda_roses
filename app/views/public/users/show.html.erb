@@ -3,11 +3,11 @@
   <%= render 'layouts/error_messages', resource: @new_post_image %>
   <div class="row">
     <div class="col-md-5 col-sm-11">
-      <h4 class="bg-warning text-center"><i class="fas fa-user"></i>会員情報</h4>
+      <h4>🌹<i class="fas fa-user"></i>User Profile🌹</h4>
         <span class="box font-weight-bold">
           <%= image_tag @user.get_profile_image(80,80), class:"rounded-circle" %>
-          ☺︎<%= link_to "︎フォロー数︎", user_followings_path(@user.id) %> <small><%= @user.followings.count %></small>&emsp;
-          ☺︎<%= link_to "︎フォロワー数︎", user_followers_path(@user.id) %> <small> <%= @user.followers.count %></small>&emsp;
+          ☺︎<%= link_to "︎フォロー︎", user_followings_path(@user.id) %> <small><%= @user.followings.count %></small>&emsp;
+          ☺︎<%= link_to "︎フォロワー︎", user_followers_path(@user.id) %> <small> <%= @user.followers.count %></small>&emsp;
           <% if @user == current_user %>
             ☺︎<%= link_to "いいね️", favorites_users_path %>
             <small> <%= @user.favorites.count %></small>
@@ -38,7 +38,7 @@
         </br>
         </br>
         <% if @user == current_user %>
-          <h4 class="bg-warning text-center">新規投稿🤳</h4>
+          <h4>🌹NewPost🌹</h4>
            <%= form_with model: @new_post_image, url: '/post_images', method: :post  do |f| %>
 
              <table class="table table-border">
@@ -55,7 +55,7 @@
                 <td style="font-size:12px"><%= f.text_area :caption, placeholder: "投稿文", :size=>"40x7" %></td>
               </tr>
               <tr>
-                <td><%= f.submit "投稿する", class: "btn btn-primary" %></td>
+                <td><%= f.submit "投稿", class: "btn btn-primary" %></td>
                 <td>
                   <%= f.label :is_published_flag, "非公開", value: true %>
                   <%= f.radio_button :is_published_flag, 'true' %>
@@ -68,8 +68,8 @@
       <% end %>
     </div>
 
-    <div class="col-md-7 col-sm-11 text-center">
-      <h4 class="bg-warning">☺︎投稿履歴☺︎</h4>
+    <div class="col-md-7 col-sm-11">
+      <h4>🌹︎User PostList🌹︎</h4>
 
       <div class="post_images-wrap">
         <% @post_images.each do |post_image| %>
@@ -95,7 +95,7 @@
           <% if @user == current_user %>
             <small>
               <% if post_image.is_published_flag == false %>
-                公開
+                公開中
               <% else %>
                 非公開
               <% end %>

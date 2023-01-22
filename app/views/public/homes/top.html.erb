@@ -32,27 +32,13 @@
     <div class="col-6"></div>
     <div class="col-6">
       <div class="slider">
-        <div>
-          <% @items.first(1).each do |item| %>
+        <% @items.each do |item| %>
+          <div>
             <%= link_to item_path(item.id) do %>
               <%= image_tag item.image, class: "ab-slider" %>
             <% end %>
-          <% end %>
-        </div>
-        <div>
-          <% @items.drop(1).each do |item| %>
-            <%= link_to item_path(item.id) do %>
-              <%= image_tag item.image, class: "ab-slider" %>
-            <% end %>
-          <% end %>
-        </div>
-        <div>
-          <% @items.drop(1).each do |item| %>
-            <%= link_to item_path(item.id) do %>
-              <%= image_tag item.image, class: "ab-slider" %>
-            <% end %>
-          <% end %>
-        </div>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>
