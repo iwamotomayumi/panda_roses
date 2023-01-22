@@ -7,15 +7,15 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" data-turbolinks-track="false" data-turbolinks="false"/>
      <link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
 
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js" data-turbolinks-track="false" data-turbolinks="false"></script>
 
-
-
-
+    <% if controller_name == 'homes' %>
+      <meta name="turbolinks-visit-control" content="reload">
+    <% end %>
   </head>
 
   <body class="d-flex flex-column vh-100">

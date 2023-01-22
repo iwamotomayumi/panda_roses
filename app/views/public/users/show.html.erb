@@ -3,13 +3,13 @@
   <%= render 'layouts/error_messages', resource: @new_post_image %>
   <div class="row">
     <div class="col-md-5 col-sm-11">
-      <h4>🌹<i class="fas fa-user"></i>User Profile🌹</h4>
+      <h4 style="color: #800000">🌹<i class="fas fa-user"></i>User Profile🌹</h4>
         <span class="box font-weight-bold">
           <%= image_tag @user.get_profile_image(80,80), class:"rounded-circle" %>
-          ☺︎<%= link_to "︎フォロー︎", user_followings_path(@user.id) %> <small><%= @user.followings.count %></small>&emsp;
-          ☺︎<%= link_to "︎フォロワー︎", user_followers_path(@user.id) %> <small> <%= @user.followers.count %></small>&emsp;
+          ︎<%= link_to "︎フォロー︎", user_followings_path(@user.id) %> <small><%= @user.followings.count %></small>&emsp;
+          ︎<%= link_to "︎フォロワー︎", user_followers_path(@user.id) %> <small> <%= @user.followers.count %></small>&emsp;
           <% if @user == current_user %>
-            ☺︎<%= link_to "いいね️", favorites_users_path %>
+            ︎<%= link_to "いいね️", favorites_users_path %>
             <small> <%= @user.favorites.count %></small>
           <% end %>
           </br>
@@ -38,7 +38,7 @@
         </br>
         </br>
         <% if @user == current_user %>
-          <h4>🌹NewPost🌹</h4>
+          <h4 style="color: #800000">🌹NewPost🌹</h4>
            <%= form_with model: @new_post_image, url: '/post_images', method: :post  do |f| %>
 
              <table class="table table-border">
@@ -69,7 +69,7 @@
     </div>
 
     <div class="col-md-7 col-sm-11">
-      <h4>🌹︎User PostList🌹︎</h4>
+      <h4 style="color: #800000">🌹︎User PostList🌹︎</h4>
 
       <div class="post_images-wrap">
         <% @post_images.each do |post_image| %>
