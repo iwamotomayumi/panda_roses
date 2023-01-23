@@ -16,7 +16,7 @@
         <%= form_with model: @item, url: admin_item_path(@item.id), method: :patch do |f| %>
          <table>
           <tr>
-            <td height="40" style="font-size:15px">商品画像</td>
+            <td width="20%" height="40" style="font-size:15px">商品画像</td>
             <td style="font-size:15px"><%= f.file_field :image, accept: "image/*" %></td>
           </tr>
 
@@ -35,7 +35,7 @@
             <td style="font-size:15px"><%= f.text_field :price, :size=>"35" %>円</td>
           </tr>
 
-          <td><%= link_to "<戻る", admin_item_path(@item.id) %></td>
+          <td><%= link_to "<Back", admin_item_path(@item.id) %></td>
           <td class="text-center"><%= f.submit "変更を保存", class:"btn btn-success" %></td>
 
         </table>

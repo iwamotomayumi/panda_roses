@@ -1,8 +1,8 @@
 <br>
 <div class="container">
   <div class="row">
-    <div class="col-5 text-center">
-      <h4 class="bg-warning">☺︎<%= @user.last_name %><%= @user.first_name %>さんの会員情報編集☺︎</h4>
+    <div class="col-md-10 col-sm-12">
+      <h4 style="color: #800000">🌹︎<%= @user.last_name %><%= @user.first_name %>さん︎ Edit🌹</h4>
     </div>
   </div>
   <div class="row">
@@ -56,7 +56,7 @@
           </td>
         </tr>
         <tr>
-          <td width="160" height="80"><%= link_to "<戻る", admin_user_path(@user.id) %></td>
+          <td width="160" height="80"><%= link_to "<Back", admin_user_path(@user.id) %></td>
           <td><%= f.submit "完了", class:"btn btn-success" %></td>
         </tr>
       </table>

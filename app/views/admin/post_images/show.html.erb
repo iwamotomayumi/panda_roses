@@ -51,6 +51,7 @@
             &emsp;&emsp;
             <%= link_to admin_post_image_path(@post_image.id), method: :delete, "data-confirm" => "この投稿を削除しますか？" do %>
               <i class="style fas fa-trash-alt" style="color: #ff7f7f;"></i>
+              <small style="color: #ff7f7f;">削除</small>
             <% end %>
           </td>
         </tr>
@@ -58,7 +59,7 @@
     </div>
 
     <div class="col-md-6">
-      ☺︎コメント一覧☺︎
+      <h4 style="color: #800000">🌹CommentList🌹</h4>
         <% @post_image.post_comments.order(created_at: :desc).each do |post_comment| %>
           <table>
             <tr>
@@ -73,6 +74,7 @@
               <td width="300"><%= post_comment.comment %></td>
               <td width="70"><%= link_to admin_post_image_post_comment_path(post_comment.post_image, post_comment), method: :delete, "data-confirm" => "この投稿を削除しますか？" do %>
                 <i class="style fas fa-trash-alt" style="color: #ff7f7f;"></i>
+                <small style="color: #ff7f7f;">削除</small>
               <% end %>
               </td>
             </tr>

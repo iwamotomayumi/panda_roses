@@ -3,8 +3,8 @@
     <div class="row-12">
       <div class="px-3 mr-auto">
 
-        <div class="col-3 text-center">
-          <h4 class="bg-warning">投稿編集</h4>
+        <div class="col-6">
+          <h4 style="color: #800000">🌹PostEdit🌹</h4>
         </div>
 
         <%= form_with model: @post_image, url: admin_post_image_path(@post_image.id), method: :patch do |f| %>
@@ -28,7 +28,7 @@
               </td>
             </tr>
             <tr>
-              <td width="20%" height="40"><%= link_to "<戻る", admin_post_image_path(@post_image.id) %></td>
+              <td width="20%" height="40"><%= link_to "<Back", admin_post_image_path(@post_image.id) %></td>
               <td><%= f.submit '保存', class:"btn btn-success" %></td>
             </tr>
           </table>

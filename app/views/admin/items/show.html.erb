@@ -10,22 +10,12 @@
   <br>
   <div class="row">
     <div class="col-md-4">
-      <% if @item.image.present? %>
-        <%= image_tag @item.image, size: "400x300" %>
-      <% else %>
-        <%= image_tag 'default-image.jpg', size: "400x300" %>
-      <% end %>
+        <%= image_tag @item.get_image(400,300) %>
     </div>
-
     <div class="col-1"></div>
-
-    <div class="col-5">
+    <div class="col-md-5 col-sm-10">
 
      <table class="table table-borderless">
-      <tr>
-        <td><%= link_to "<Back", admin_root_path %></td>
-        <td></td>
-      </tr>
       <tr>
         <td width="150">商品名</td>
         <td><%= @item.name %></td>
@@ -41,16 +31,18 @@
         </td>
       </tr>
       <tr>
+        <td><%= link_to "<Back", admin_root_path %></td>
         <td>
           <%= link_to edit_admin_item_path(@item.id) do %>
             <i class="fas fa-edit" style="color: #00bb85"></i>
             <small style="color: #00bb85">編集</small>
           <% end %>
         </td>
-        <td><%= link_to admin_item_path(@item.id), method: :delete, "data-confirm" => "この投稿を削除しますか？" do %>
-          <i class="fas fa-trash-alt" style="color: #ff7f7f;"></i>
-          <small style="color: #ff7f7f;">削除</small>
-        <% end %>
+        <td>
+          <%= link_to admin_item_path(@item.id), method: :delete, "data-confirm" => "この投稿を削除しますか？" do %>
+            <i class="fas fa-trash-alt" style="color: #ff7f7f;"></i>
+            <small style="color: #ff7f7f;">削除</small>
+         <% end %>
         </td>
       </tr>
     </table>

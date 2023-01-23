@@ -1,18 +1,14 @@
 <br>
 <div class="container">
   <div class="row">
-    <div class="col-4 text-center">
-      <h4 class="bg-warning">☺︎<%= @user.last_name %><%= @user.first_name %>さんの会員詳細☺︎</h4>
-    </div>
-  </div>
-  <br>
-  <div class="row">
     <div class="col-md-6 col-sm-11">
+      <h4 style="color: #800000">🌹︎<%= @user.last_name %><%= @user.first_name %>さん Profile🌹︎</h4>
+      <br>
       <table class="table table-borderless">
         <tr>
           <td width="200"><%= image_tag @user.get_profile_image(80,80), class:"rounded-circle" %></td>
-          <td>☺︎<%= link_to "︎フォロー数︎", admin_user_followings_path(@user.id) %> <small><%= @user.followings.count %></small>&emsp;
-              ☺︎<%= link_to "︎フォロワー数︎", admin_user_followers_path(@user.id) %> <small> <%= @user.followers.count %></small>
+          <td>︎<%= link_to "︎フォロー︎", admin_user_followings_path(@user.id) %> <small><%= @user.followings.count %></small>&emsp;
+              ︎<%= link_to "︎フォロワー︎", admin_user_followers_path(@user.id) %> <small> <%= @user.followers.count %></small>
           </td>
         </tr>
         <tr>
@@ -61,7 +57,7 @@
     </div>
 
     <div class="col-md-6">
-      <h4 class="font-weight-bold">☺︎投稿履歴☺︎</h4>
+      <h4 style="color: #800000">🌹PostList︎🌹︎</h4>
       <div class="post_images-wrap">
         <% @post_images.each do |post_image| %>
           <span class="post_images-box1 font-weight-bold">
