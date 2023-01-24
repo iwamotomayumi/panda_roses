@@ -7,7 +7,7 @@
       </br>
       </br>
       <div class="post_images-comment">
-        <span class="item-body">
+        <span>
           <%= image_tag post_image.user.get_profile_image(50,50), class:"rounded-circle" %>
            &emsp;
           <% if post_image.favorited_by?(current_user) %>

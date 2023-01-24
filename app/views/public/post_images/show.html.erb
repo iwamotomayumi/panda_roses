@@ -77,9 +77,9 @@
         <%= f.submit "投稿", class: "btn btn-primary" %>
       <% end %>
       </br>
-      <h4> 🌹Comment List🌹</h4>︎
+      <h4 style="color: #800000"> 🌹Comment List🌹</h4>︎
         <% @post_image.post_comments.order(created_at: :desc).each do |post_comment| %>
-          <table>
+          <table class="table table-hover table-inverse">
             <tr>
               <td width="30">💬</td>
               <td width="70"><%= image_tag post_comment.user.get_profile_image(50,50), class:"rounded-circle"  %></td>
@@ -90,7 +90,7 @@
               </td>
               <td width="100"><%= post_comment.created_at.strftime('%Y/%m/%d') %></td>
               <td width="300"><%= post_comment.comment %></td>
-              <td width="70">
+              <td width="100">
                 <% if post_comment.user == current_user %>
                   <%= link_to post_image_post_comment_path(post_comment.post_image, post_comment), method: :delete, "data-confirm" => "コメントを削除しますか？" do %>
                     <i class="style fas fa-trash-alt" style="color: #ff7f7f;"></i>
