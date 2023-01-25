@@ -1,25 +1,27 @@
 <br>
 <div class="container">
   <div class="row">
-    <div class="col-md-5">
+    <div class="col-md-1 col-sm-1"></div>
+    <div class="col-md-5 col-sm-10">
       <h4 style="color: #800000">🌹ItemDetails🌹︎</h4>
     </div>
   </div>
   <br>
   <div class="row">
-    <div class="col-md-4">
-        <%= image_tag @item.get_image, size: "350x300" %>
+    <div class="col-md-1 col-sm-1"></div>
+    <div class="col-md-4 col-sm-10">
+        <%= image_tag @item.get_image, size: "320x290" %>
     </div>
 
     <div class="col-md-7 col-sm-10">
      <table class="table table-borderless">
       <tr>
-        <td width="20%">商品名</td>
-        <td width="60%"><%= @item.name %></td>
+        <td width="150">商品名</td>
+        <td width="500"><%= safe_join(@item.name.split("\n"),tag(:br)) %></td>
       </tr>
       <tr>
         <td>商品説明</td>
-        <td width="600"><%= @item.introduction %></td>
+        <td width="600"><%= safe_join(@item.introduction.split("\n"),tag(:br)) %></td>
       </tr>
       <tr>
         <td>税込価格<br><small>(税抜価格）</small></td>

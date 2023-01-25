@@ -35,25 +35,25 @@
       <% end %>
     </div>
 
-    <div class="col-md-8 col-sm-11">
+    <div class="col-md-8 col-sm-12">
       <div>
         <h4 style="color: #800000">🌹Item List🌹︎</h4>
          <table class="table table-hover table-inverse">
 
             <% @items.each do |item| %>
               <tr>
-                <td class="item-list-image">
+                <td>
                   <%= link_to admin_item_path(item.id) do %>
                     <%= image_tag item.get_image, size: "80x50" %>
                   <% end %>
                 </td>
-                <td><%= item.created_at.strftime("%Y/%m/%d") %></td>
-                <td><%= item.name %></td>
+                <td><small><%= item.created_at.strftime("%Y/%m/%d") %></small></td>
+                <td><%= safe_join(item.name.split("\n"),tag(:br)) %></td>
                 <td>¥<%= item.add_tax_price.to_s(:delimited) %>
                     </br>
                     <small>(¥<%= item.price.to_s(:delimited) %>)</small>
                 </td>
-                <td><%= item.introduction %></td>
+                <td><%= safe_join(item.introduction.split("\n"),tag(:br)) %></td>
                </tr>
             <% end %>
           </table>

@@ -25,7 +25,7 @@
         </tr>
         <tr>
           <td width="200">プロフィール</td>
-          <td><%= @user.introduction %></td>
+          <td><%= safe_join(@user.introduction.split("\n"),tag(:br)) %></td>
         </tr>
         <tr>
           <td width="200">メールアドレス</td>

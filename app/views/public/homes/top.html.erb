@@ -8,25 +8,25 @@
       <h6>
         マルシェなどで出店しております。
       </h6>
-      <small>
         PandaRosesの名前の由来は</br>
         娘がパンダとお花が好きだからです。</br>
-      </small>
 
       </br>
-      <h5 style="color: #800000">🌹PandaRses 仲間と繋がろう🌹</h5>
-      <h6>PandaRsesの商品を通じて交流の場ができればと思いSNSを始めました。</br>
-      <small>
-        会員でない方も PandaRses の商品は閲覧していただけます。</br>
-        ※このお店は架空のものです
-      </small>
+      <h5 style="color: #800000">🌹PandaRoses 仲間と繋がろう🌹</h5>
+      <h6>PandaRosesの商品を通じて交流の場ができればと思いSNSを始めました。</br>
+        会員でない方も PandaRoses の商品は閲覧していただけます。</br>
       </h6>
       </br>
-      <h6 style="color: #800000">
-        🌹New Item🌹
+      <h5 style="color: #800000"> 🌹New Item🌹
+
+      </h5>
+      <h6>
+        新作３件の紹介です。</br>
+        全ての商品は
         <%= link_to items_path do %>
-          <%= "Item List>>" %>
+          <%= "こちら>>" %>
         <% end %>
+        からご覧ください。
       </h6>
     </dv>
     <div class="col-6"></div>
@@ -35,11 +35,12 @@
         <% @items.each do |item| %>
           <div>
             <%= link_to item_path(item.id) do %>
-              <%= image_tag item.get_image, size: "2000x200", class: "ab-slider" %>
+              <%= image_tag item.get_image, size: "200x200", class: "ab-slider" %>
             <% end %>
           </div>
         <% end %>
       </div>
+      <small>※このお店は架空のものです</small>
     </div>
   </div>
 </div>

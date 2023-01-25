@@ -34,11 +34,11 @@
         </tr>
         <tr>
           <td style="font-size:12px">タイトル</td>
-          <td style="font-size:15px"><%= @post_image.title %></td>
+          <td style="font-size:15px"><%= safe_join(@post_image.title.split("\n"),tag(:br)) %></td>
         </tr>
         <tr>
           <td style="font-size:12px">投稿説明</td>
-          <td style="font-size:15px"><%= @post_image.caption %></td>
+          <td style="font-size:15px"><%= safe_join(@post_image.caption.split("\n"),tag(:br)) %></td>
         </tr>
          <% if @post_image.user == current_user %>
         <tr>
