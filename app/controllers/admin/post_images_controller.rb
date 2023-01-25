@@ -2,7 +2,8 @@ class Admin::PostImagesController < ApplicationController
   before_action :authenticate_admin!
 
   def index
-     @post_images = PostImage.published.order(created_at: :desc).page(params[:page]).per(10)
+    post_images = PostImage.published.includes(:favorited_users).sort {|a,b| b.favorited_users.size <=> a.favorited_users.size}
+    @post_images = Kaminari.paginate_array(post_images).page(params[:page]).per(10)
   end
 
   def show

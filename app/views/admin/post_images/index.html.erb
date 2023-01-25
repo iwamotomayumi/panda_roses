@@ -1,13 +1,11 @@
 </br>
 <div class="container">
   <div class="row">
-    <div class="col-6">
-      <h4 style="color: #800000">🌹PostList🌹︎</h4>
+    <div class="col-1"></div>
+    <div class="col-11">
+      <h5 style="color: #800000">🌹PostList🌹<small>〜いいねランキング〜</small></h5>
+      <%= render '/admin/post_images/post_image_list', post_images: @post_images %>
     </div>
-  </div>
-
-  <div class="row">
-    <%= render '/admin/post_images/post_image_list', post_images: @post_images %>
   </div>
   <div class="row">
     <div class="col-5"></div>

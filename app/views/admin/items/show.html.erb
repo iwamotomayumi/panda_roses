@@ -10,19 +10,19 @@
   <br>
   <div class="row">
     <div class="col-md-4">
-        <%= image_tag @item.get_image, size: "400x300" %>
+        <%= image_tag @item.get_image, size: "300x250" %>
     </div>
     <div class="col-1"></div>
-    <div class="col-md-5 col-sm-10">
+    <div class="col-md-6 col-sm-10">
 
      <table class="table table-borderless">
       <tr>
-        <td width="150">商品名</td>
-        <td><%= @item.name %></td>
+        <td width="300">商品名</td>
+        <td width="600"><%= @item.name %></td>
       </tr>
       <tr>
-        <td>商品説明</td>
-        <td><%= @item.introduction %></td>
+        <td width="300">商品説明</td>
+        <td width="600"><%= @item.introduction %></td>
       </tr>
       <tr>
         <td>税込価格<br><small>(税抜価格）</small></td>
@@ -38,7 +38,7 @@
             <small style="color: #00bb85">編集</small>
           <% end %>
         </td>
-        <td>
+        <td width="300">
           <%= link_to admin_item_path(@item.id), method: :delete, "data-confirm" => "この投稿を削除しますか？" do %>
             <i class="fas fa-trash-alt" style="color: #ff7f7f;"></i>
             <small style="color: #ff7f7f;">削除</small>

@@ -1,9 +1,14 @@
 <br>
 <div class="container">
-  <h4  style="color: #800000">🌹︎Search Results🌹︎</h4>
-  <% if @range == "会員" %>
-    <%= render '/public/users/user_list', users: @users %>
-  <% else %>
-    <%= render '/public/post_images/post_image_list', post_images: @post_images %>
-  <% end %>
+  <div class="row">
+    <div class="col-1"></div>
+    <div class="col-11">
+      <h4  style="color: #800000">🌹︎Search Results🌹︎</h4>
+      <% if @range == "会員" %>
+        <%= render '/public/users/user_list', users: @users %>
+      <% else %>
+        <%= render '/public/post_images/post_image_list', post_images: @post_images %>
+      <% end %>
+    </div>
+  </div>
 </div>
