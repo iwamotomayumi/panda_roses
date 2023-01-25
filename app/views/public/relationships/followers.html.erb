@@ -3,7 +3,7 @@
   <h4 style="color: #800000">🌹Followers List🌹︎</h4>&emsp;<%= link_to "<Back", user_path(@user.id) %>︎</h4>
 
   <% if @users.exists? %>
-    <%= render '/public/relationships/follow_list', users: @users %>
+    <%= render '/public/users/user_list', users: @users %>
   <% else %>
     <p>ユーザーはいません</p>
   <% end %>

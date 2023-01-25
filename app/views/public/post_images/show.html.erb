@@ -3,7 +3,7 @@
   <div class="row">
     <div class="col-md-5">
       <h4 style="color: #800000">🌹Post Details🌹</h4>
-      <%= image_tag @post_image.get_image(250,150) %></br>
+      <%= image_tag @post_image.get_image, size: "280x250" %></br>
       </br>
       <p><%= image_tag @post_image.user.get_profile_image(50,50), class:"rounded-circle" %>
         &emsp;

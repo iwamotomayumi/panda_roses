@@ -7,7 +7,7 @@
       <% @items.each do |item| %>
         <span class="item-box1 font-weight-bold">
           <%= link_to item_path(item.id) do %>
-            <%= image_tag item.get_image(150,150) %>
+            <%= image_tag item.get_image, size: "160x160" %>
           <% end %>
           <div class="item-comment">
             <span class="item-body", style="font-size:15px"><%= item.created_at.strftime('%Y/%m/%d') %></span><br>

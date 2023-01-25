@@ -44,7 +44,7 @@
               <tr>
                 <td class="item-list-image">
                   <%= link_to admin_item_path(item.id) do %>
-                    <%= image_tag item.get_image(80,50) %>
+                    <%= image_tag item.get_image, size: "80x50" %>
                   <% end %>
                 </td>
                 <td><%= item.created_at.strftime("%Y/%m/%d") %></td>

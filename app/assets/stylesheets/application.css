@@ -107,10 +107,22 @@ nav {
   text-overflow: ellipsis;
 }
 
-.post_images-box2,.item-box1 {
+.post_images-box2 {
   display: block;
   width: 170px;
   height: 280px;
+  margin: 10px;
+  flex-wrap: wrap;
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.item-box1 {
+  display: block;
+  width: 170px;
+  height: 260px;
   margin: 10px;
   flex-wrap: wrap;
   position: relative;

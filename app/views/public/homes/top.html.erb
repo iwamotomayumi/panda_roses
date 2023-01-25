@@ -35,7 +35,7 @@
         <% @items.each do |item| %>
           <div>
             <%= link_to item_path(item.id) do %>
-              <%= image_tag item.get_image(170,250), class: "ab-slider" %>
+              <%= image_tag item.get_image, size: "2000x200", class: "ab-slider" %>
             <% end %>
           </div>
         <% end %>
