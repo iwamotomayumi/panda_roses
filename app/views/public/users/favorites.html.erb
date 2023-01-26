@@ -13,7 +13,7 @@
      </br>
      <div class="post_images-comment">
       <span class="item-body">
-        <%= image_tag post_image.user.get_profile_image(50,50), class:"rounded-circle" %>
+        <%= image_tag post_image.user.get_profile_image, size: "50x50", class:"rounded-circle" %>
         &emsp;
         <% if post_image.favorited_by?(current_user) %>
           <%= link_to post_image_favorites_path(post_image), method: :delete do %>

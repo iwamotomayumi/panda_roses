@@ -5,7 +5,7 @@
       <h4 style="color: #800000">🌹Post Details🌹</h4>
       <%= image_tag @post_image.get_image, size: "280x250" %></br>
       </br>
-      <p><%= image_tag @post_image.user.get_profile_image(50,50), class:"rounded-circle" %>
+      <p><%= image_tag @post_image.user.get_profile_image, size: "50x50", class:"rounded-circle" %>
         &emsp;
         <% if @post_image.favorited_by?(current_user) %>
             <%= link_to post_image_favorites_path(@post_image), method: :delete do %>
@@ -82,7 +82,7 @@
           <table class="table table-hover table-inverse">
             <tr>
               <td width="30">💬</td>
-              <td width="70"><%= image_tag post_comment.user.get_profile_image(50,50), class:"rounded-circle"  %></td>
+              <td width="70"><%= image_tag post_comment.user.get_profile_image, size: "50x50", class:"rounded-circle"  %></td>
               <td width="100">
                 <%= link_to  user_path(post_comment.user.id) do %>
                   <%= post_comment.user.last_name %><%= post_comment.user.first_name %>

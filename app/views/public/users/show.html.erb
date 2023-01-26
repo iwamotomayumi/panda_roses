@@ -5,7 +5,7 @@
     <div class="col-md-5 col-sm-11">
       <h4 style="color: #800000">🌹<i class="fas fa-user"></i>User Profile🌹</h4>
         <span class="box font-weight-bold">
-          <%= image_tag @user.get_profile_image(80,80), class:"rounded-circle" %>
+          <%= image_tag @user.get_profile_image, size: "80x80", class:"rounded-circle" %>
           ︎<%= link_to "︎フォロー︎", user_followings_path(@user.id) %> <small><%= @user.followings.count %></small>&emsp;
           ︎<%= link_to "︎フォロワー︎", user_followers_path(@user.id) %> <small> <%= @user.followers.count %></small>&emsp;
           <% if @user == current_user %>
@@ -24,7 +24,7 @@
             <% end %>
           </span>
           <br>
-          <span><%= @user.introduction %></span>
+          <span><%= safe_join(@user.introduction.split("\n"),tag(:br)) %></span>
           <br>
         </span>
 

@@ -6,7 +6,7 @@
       <br>
       <table class="table table-borderless">
         <tr>
-          <td width="200"><%= image_tag @user.get_profile_image(80,80), class:"rounded-circle" %></td>
+          <td width="200"><%= image_tag @user.get_profile_image, size: "80x80", class:"rounded-circle" %></td>
           <td>︎<%= link_to "︎フォロー︎", admin_user_followings_path(@user.id) %> <small><%= @user.followings.count %></small>&emsp;
               ︎<%= link_to "︎フォロワー︎", admin_user_followers_path(@user.id) %> <small> <%= @user.followers.count %></small>
           </td>

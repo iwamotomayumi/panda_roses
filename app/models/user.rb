@@ -28,12 +28,12 @@ class User < ApplicationRecord
   validates :first_name_kana, presence: true, format: {with: /\A[\p{katakana}\p{blank}ー－]+\z/, message: 'はカタカナで入力して下さい。'}
   validates :telephone_number, presence: true, format: {with: /\A\d{10}$|^\d{11}\z/, message: '10桁か11桁の電話番号を入力してください。'}
 
-  def get_profile_image(width, height)
+  def get_profile_image
    unless profile_image.attached?
      file_path = Rails.root.join('app/assets/images/no_image.jpeg')
       profile_image.attach(io: File.open(file_path), filename: 'no_image.jpeg', content_type: 'image/jpeg')
    end
-   profile_image.variant(resize_to_limit: [width, height]).processed
+   profile_image
   end
 
   #フォローした時の処理

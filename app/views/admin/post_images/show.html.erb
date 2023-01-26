@@ -5,7 +5,7 @@
     <div class="col-md-5">
       <%= image_tag @post_image.get_image, size: "300x200" %></br>
       </br>
-      <p><%= image_tag @post_image.user.get_profile_image(50,50), class:"rounded-circle" %>
+      <p><%= image_tag @post_image.user.get_profile_image, size: "50x50", class:"rounded-circle" %>
         &emsp;
           ❤️<small><%= @post_image.favorites.count %></small>
           💬<small><%= @post_image.post_comments.count %></small>
@@ -64,7 +64,7 @@
           <table>
             <tr>
               <td width="30">💬</td>
-              <td width="70"><%= image_tag post_comment.user.get_profile_image(50,50), class:"rounded-circle"  %></td>
+              <td width="70"><%= image_tag post_comment.user.get_profile_image, size: "50x50", class:"rounded-circle"  %></td>
               <td width="100">
                 <%= link_to admin_user_path(@post_image.user.id) do %>
                   <%= post_comment.user.last_name %><%= post_comment.user.first_name %>
