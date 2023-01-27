@@ -20,7 +20,7 @@
             <% end %>
           <% end %>
           <%= link_to post_image_path(post_image.id) do %>
-             💬<small><%= post_image.post_comments.count %></small>
+              💬<small><%= post_image.post_comments.count %></small>
           <% end %>
           👀<small><%= post_image.view_counts.count %></small>
         </span>
@@ -35,5 +35,8 @@
         <span class="item-title", style="font-size:12px"><%= post_image.caption %></span>
       </div>
     </span>
+  <% end %>
+  <% if post_images.size == 0 %>
+    <p>投稿がありません</p>
   <% end %>
 </div>

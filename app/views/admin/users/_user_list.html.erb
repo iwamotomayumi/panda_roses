@@ -1,12 +1,12 @@
-<table class="table table-hover table-inverse">
+<table class="table table-hover table-inverse" width="1000">
   <tr>
-    <small>
-      <th width="150"></th>
-      <th width="300">会員ID</th>
-      <th width="500">氏名</th>
-      <th width="500">メールアドレス</th>
-      <th width="300">ステータス</th>
-    </small>
+  <small>
+    <th width="10%"></th>
+    <th width="15%">会員ID</th>
+    <th width="30%">氏名</th>
+    <th width="30%">メールアドレス</th>
+    <th width="15%">ステータス</th>
+  </small>
   </tr>
   <% users.each do |user| %>
     <tr>
@@ -20,6 +20,9 @@
           退会
           <% end %>
       </td>
-     </tr>
-    <% end %>
-  </table>
+    </tr>
+  <% end %>
+  <% if users.size == 0 %>
+    <p>ユーザーはいません</p>
+  <% end %>
+</table>

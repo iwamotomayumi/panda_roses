@@ -5,7 +5,7 @@
 PandaRoses 〜名前の由来は、娘がパンダとバラが大好きだからです〜
 
 会員登録していない方も商品を閲覧できます。
-会員登録して頂きますと、投稿（公開・非公開設定可能）、コメント、いいね、フォローできるサイトです。
+会員登録して頂きますと、投稿（公開・非公開設定可能）、投稿へのコメント、いいね、フォローできるサイトです。
 会員か投稿かで検索もできます。
 いいねが多い順に投稿一覧を表示しております。
 ※この店舗は実在しませんのでご了承ください。
@@ -34,12 +34,12 @@ https://docs.google.com/spreadsheets/d/1TrsE2YJyeR5ztQ1w0qjBtdpUOImQ1Zk1zStROd1l
 - OS：Linux(CentOS)
 - 言語：HTML,CSS,JavaScript,Ruby,SQL
 - フレームワーク：Ruby on Rails
-- JSライブラリ：jQuery
+- JSライブラリ：jQuery,slickr
 - IDE：Cloud9
 
 ## 使用写真素材（フリー）
 - O-DAN : https://o-dan.net/ja/
-
+- Pixtabay
 
 
 
