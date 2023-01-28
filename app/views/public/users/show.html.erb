@@ -24,7 +24,11 @@
             <% end %>
           </span>
           <br>
-          <span><%= safe_join(@user.introduction.split("\n"),tag(:br)) %></span>
+          <span>
+            <% if @user.introduction %>
+              <%= safe_join(@user.introduction.split("\n"),tag(:br)) %>
+            <% end %>
+          </span>
           <br>
         </span>
 
