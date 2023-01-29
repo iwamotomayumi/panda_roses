@@ -12,6 +12,8 @@ ja:
         caption: "投稿文"
       user:
         introduction: "プロフィール"
+      post_comment:
+        comment: "コメント"
   views:
     pagination:
       first: "≪"

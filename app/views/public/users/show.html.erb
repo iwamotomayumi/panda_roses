@@ -52,11 +52,11 @@
               </tr>
               <tr>
                 <td style="font-size:12px ">タイトル</td>
-                <td style="font-size:12px"><%= f.text_field :title, placeholder: "タイトル", :size=>"20"%></td>
+                <td style="font-size:12px"><%= f.text_field :title, placeholder: "タイトル（20文字以内）", :size=>"20"%></td>
               </tr>
               <tr>
                 <td style="font-size:12px">投稿文</td>
-                <td style="font-size:12px"><%= f.text_area :caption, placeholder: "投稿文", :size=>"40x7" %></td>
+                <td style="font-size:12px"><%= f.text_area :caption, placeholder: "投稿文（120文字以内）", :size=>"40x7" %></td>
               </tr>
               <tr>
                 <td><%= f.submit "投稿", class: "btn btn-primary" %></td>
