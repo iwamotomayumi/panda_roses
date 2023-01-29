@@ -20,7 +20,6 @@ class Admin::UsersController < ApplicationController
     flash[:notice] = "変更を保存しました"
     redirect_to admin_user_path(@user.id)
     else
-      flash[:notice] = "変更内容を入力して下さい"
       render :edit
     end
   end

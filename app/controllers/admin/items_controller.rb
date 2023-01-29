@@ -34,7 +34,6 @@ class Admin::ItemsController < ApplicationController
     flash[:notice] = "変更を保存しました"
     redirect_to admin_item_path(@item.id)
     else
-       flash[:notice] = "変更内容を入力して下さい"
       render :edit
     end
   end

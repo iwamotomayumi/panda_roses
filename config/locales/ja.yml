@@ -10,6 +10,8 @@ ja:
         image: "画像"
         title: "タイトル"
         caption: "投稿文"
+      user:
+        introduction: "プロフィール"
   views:
     pagination:
       first: "≪"

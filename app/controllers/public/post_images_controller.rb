@@ -50,7 +50,6 @@ class Public::PostImagesController < ApplicationController
       flash[:notice] = "投稿を編集しました"
       redirect_to post_image_path(@post_image.id)
     else
-      flash[:notice] = "変更内容を入力して下さい"
       render :edit
     end
   end
