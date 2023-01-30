@@ -70,10 +70,8 @@
             <% end %>
             </br>
             &emsp;
-                ❤️<small><%= post_image.favorites.count %></small>
-            <%= link_to admin_post_image_path(post_image.id) do %>
-              💬<small><%= post_image.post_comments.count %></small>
-            <% end %>
+            ❤️<small><%= post_image.favorites.count %></small>
+            💬<small><%= post_image.post_comments.count %></small>
             👀<small><%= post_image.view_counts.count %></small>
             <small>
               <% if post_image.is_published_flag == false %>
