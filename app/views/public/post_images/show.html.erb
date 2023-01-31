@@ -70,7 +70,7 @@
     </table>
   </div>
 
-  <div class="col-md-6">
+  <div class="col-md-7">
     <h4 style="color: #800000">🌹Comment🌹</h4>
       <%= form_with model: [@post_image, @post_comment] do |f| %>
         <%= f.text_area :comment,:size=>"50x4", placeholder: "コメントをここにどうぞ(120文字以内)
@@ -84,7 +84,7 @@
             <tr>
               <td width="30">💬</td>
               <td width="70"><%= image_tag post_comment.user.get_profile_image, size: "50x50", class:"rounded-circle"  %></td>
-              <td width="100">
+              <td width="200">
                 <%= link_to  user_path(post_comment.user.id) do %>
                   <%= post_comment.user.last_name %><%= post_comment.user.first_name %>
                 <% end %>

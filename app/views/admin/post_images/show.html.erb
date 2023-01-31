@@ -65,14 +65,14 @@
             <tr>
               <td width="30">💬</td>
               <td width="70"><%= image_tag post_comment.user.get_profile_image, size: "50x50", class:"rounded-circle"  %></td>
-              <td width="100">
+              <td width="200">
                 <%= link_to admin_user_path(@post_image.user.id) do %>
                   <%= post_comment.user.last_name %><%= post_comment.user.first_name %>
                 <% end %>
               </td>
               <td width="100"><%= post_comment.created_at.strftime('%Y/%m/%d') %></td>
               <td width="300"><%= post_comment.comment %></td>
-              <td width="70"><%= link_to admin_post_image_post_comment_path(post_comment.post_image, post_comment), method: :delete, "data-confirm" => "この投稿を削除しますか？" do %>
+              <td width="100"><%= link_to admin_post_image_post_comment_path(post_comment.post_image, post_comment), method: :delete, "data-confirm" => "この投稿を削除しますか？" do %>
                 <i class="style fas fa-trash-alt" style="color: #ff7f7f;"></i>
                 <small style="color: #ff7f7f;">削除</small>
               <% end %>

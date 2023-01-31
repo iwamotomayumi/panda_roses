@@ -23,8 +23,10 @@
             <tr>
               <td class="align="left" valign="top"" width="20%" height="40">公開設定</td>
               <td>
-                <%= f.radio_button :is_published_flag, false %>公開 &nbsp;
-                <%= f.radio_button :is_published_flag, true %>非公開
+                <%= f.label :is_published_flag, "公開", value: false %>
+                <%= f.radio_button :is_published_flag, false %> &nbsp;
+                <%= f.label :is_published_flag, "非公開", value: true %>
+                <%= f.radio_button :is_published_flag, true %>
               </td>
             </tr>
             <tr>

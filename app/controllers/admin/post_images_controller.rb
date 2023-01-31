@@ -34,7 +34,7 @@ class Admin::PostImagesController < ApplicationController
  private
   # ストロングパラメータ
   def post_image_params
-    params.require(:post_image).permit(:title, :caption, :image)
+    params.require(:post_image).permit(:title, :caption, :image, :is_published_flag)
   end
 
 end

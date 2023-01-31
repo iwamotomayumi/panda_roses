@@ -6,8 +6,9 @@ class PostImage < ApplicationRecord
   has_many :favorited_users, through: :favorites, source: :user
   has_many :view_counts, dependent: :destroy
 
-   # 公開・非公開機能
+   # 非公開
   scope :unpublished, -> {where(is_published_flag: true)}
+  # 公開
   scope :published, -> {where(is_published_flag: false)}
 
   has_one_attached :image
