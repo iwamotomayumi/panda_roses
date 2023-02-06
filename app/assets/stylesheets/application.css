@@ -31,7 +31,7 @@
 
 body {
    background-color: #FFC0FE;           /* 背景色 */
-   background-image: url("heart-1899776_1920.jpg"); /* 画像 */
+   background-image: image-url("heart-1899776_1920.jpg"); /* 画像 */
    background-size: cover;               /* 全画面 */
    background-attachment: fixed;         /* 固定 */
    background-position: center center;   /* 縦横中央 */
