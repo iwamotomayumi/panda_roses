@@ -23,6 +23,10 @@
   font-family: 'Kaushan', cursive, sans-serif;
 }
 
+@media (max-width: 576px) {
+  th,td{display : block;}
+}
+
 /*ページネーション自体のデザイン*/
 .pagination {
   border: none;     /*枠線をなくす*/

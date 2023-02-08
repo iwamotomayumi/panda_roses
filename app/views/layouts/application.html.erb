@@ -19,24 +19,27 @@
     <% end %>
   </head>
 
-  <body class="d-flex flex-column vh-100">
-    <header class="heder text-black text-center text-align">
-      <nav class="navbar navbar-expand-lg navbar-light">
-        <h3>PandaRoses</h3>
 
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+  <body class="d-flex flex-column vh-100">
+    <header class="shadow-sm">
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+          <h1 class="navbar-brand p-3">PandaRoses</h1>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
                     aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-          <% if user_signed_in? %>
-            <ul class="navbar-nav ml-auto">
-               <div class="form-inline text-right">
-                <i class="fas fa-user"></i><%= current_user.last_name %><%= current_user.first_name %>さん
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+              <ul class="navbar-nav ml-auto">
+                <div class="form-inline text-right">
+                <% if user_signed_in? %>
+                <p class="nav-item col-md-4 col-sm-9">
+                  <i class="fas fa-user"></i><%= current_user.last_name %><%= current_user.first_name %>さん
+                </p>
                 <p class="nav-item">
                   <%= link_to "Top", root_path %>
                 </p>
-                 <p class="nav-item">
+                <p class="nav-item">
                   <%= link_to "MyPage", user_path(current_user) %>
                 </p>
                 <p class="nav-item">
@@ -48,7 +51,7 @@
                 <p class="nav-item">
                   <%= link_to "LogOut", destroy_user_session_path, method: :delete %>
                 </p>
-                <p class="nav-item">
+                <p class="nav-item col-md-7 col-sm-11">
                   <%= form_with url: search_path, method: :get, local: :true do |f| %>
                     <%= f.select :range, options_for_select([['会員'], ['投稿']]) %>
                     <%= f.text_field :word, placeholder: "キーワード検索", class: "form-control" %>
@@ -56,7 +59,10 @@
                   <% end %>
                 </p>
               </div>
+              </div>
             </ul>
+          </div>
+
           <% elsif admin_signed_in? %>
             <ul class="navbar-nav ml-auto">
               <div class="form-inline text-right">
@@ -84,13 +90,13 @@
             <% else %>
             <ul class="navbar-nav ml-auto">
               <div class="form-inline text-center">
-                <p class="nav-item">
+                <p class="nav-item col-md-5 col-sm-10">
                   <%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, class: "btn btn-secondary btn-sm btn-block mb-3 sign_in", method: :post %>
                 </p>
                 <p class="nav-item">
                   <%= link_to "Top", root_path %>
                 </p>
-                 <p class="nav-item">
+                <p class="nav-item">
                   <%= link_to "Sign Up", new_user_registration_path %>
                 </p>
                 <p class="nav-item">
@@ -110,7 +116,7 @@
     </main>
 
     <footer class="text-black text-center text-align">
-         ︎🐼 I wish you all the best of luck 🐼
+       ︎🐼 I wish you all the best of luck 🐼
     </footer>
   </body>
 </html>

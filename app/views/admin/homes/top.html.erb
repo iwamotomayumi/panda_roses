@@ -46,13 +46,13 @@
                   <%= link_to admin_item_path(item.id) do %>
                     <%= image_tag item.get_image, size: "80x50" %>
                   <% end %>
+                  <small><%= item.created_at.strftime("%Y/%m/%d") %></small>
                 </td>
-                <td><small><%= item.created_at.strftime("%Y/%m/%d") %></small></td>
-                <td><%= safe_join(item.name.split("\n"),tag(:br)) %></td>
                 <td>¥<%= item.add_tax_price.to_s(:delimited) %>
                     </br>
                     <small>(¥<%= item.price.to_s(:delimited) %>)</small>
                 </td>
+                <td><%= safe_join(item.name.split("\n"),tag(:br)) %></td>
                 <td><%= safe_join(item.introduction.split("\n"),tag(:br)) %></td>
                </tr>
             <% end %>

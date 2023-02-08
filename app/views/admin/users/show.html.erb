@@ -12,36 +12,36 @@
           </td>
         </tr>
         <tr>
-          <td width="200">会員ID</td>
-          <td><%= @user.id %></td>
+          <td width="200" style="font-size:13px">会員ID：</td>
+          <td style="font-size:20px"><%= @user.id %></td>
         </tr>
         <tr>
-          <td width="200">氏名</td>
-          <td><%= @user.last_name %> <%= @user.first_name %></td>
+          <td width="200" style="font-size:13px">氏名：</td>
+          <td style="font-size:20px"><%= @user.last_name %> <%= @user.first_name %></td>
         </tr>
         <tr>
-          <td width="200">フリガナ</td>
-          <td><%= @user.last_name_kana %> <%= @user.first_name_kana %></td>
+          <td width="200" style="font-size:13px">フリガナ：</td>
+          <td style="font-size:20px"><%= @user.last_name_kana %> <%= @user.first_name_kana %></td>
         </tr>
         <tr>
-          <td width="200">プロフィール</td>
-          <td>
+          <td width="200" style="font-size:13px">プロフィール：</td>
+          <td style="font-size:20px">
             <% if @user.introduction %>
               <%= safe_join(@user.introduction.split("\n"),tag(:br)) %>
             <% end %>
           </td>
         </tr>
         <tr>
-          <td width="200">メールアドレス</td>
-          <td><%= @user.email %></td>
+          <td width="200" style="font-size:13px">メールアドレス：</td>
+          <td style="font-size:20px"><%= @user.email %></td>
         </tr>
          <tr>
-          <td width="200">電話番号</td>
-          <td><%= @user.telephone_number %></td>
+          <td width="200" style="font-size:13px">電話番号：</td>
+          <td style="font-size:20px"><%= @user.telephone_number %></td>
         </tr>
         <tr>
-          <td width="200">会員ステータス</td>
-          <td><% if @user.is_deleted == false %>
+          <td width="200" style="font-size:13px">会員ステータス：</td>
+          <td style="font-size:20px"><% if @user.is_deleted == false %>
               有効
               <% else %>
               退会
