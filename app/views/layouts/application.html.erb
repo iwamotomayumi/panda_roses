@@ -36,28 +36,28 @@
                 <p class="nav-item col-md-4 col-sm-9">
                   <i class="fas fa-user"></i><%= current_user.last_name %><%= current_user.first_name %>さん
                 </p>
-                <p class="nav-item col-md-1 col-sm-1">
+                <p class="nav-item col-md-1 col-sm-1 mb-2">
                   <%= link_to "Top", root_path %>
                 </p>
-                <p class="nav-item col-md-1 col-sm-1">
+                <p class="nav-item col-md-1 col-sm-1 mb-2">
                   <%= link_to "MyPage", user_path(current_user) %>
                 </p>
-                <p class="nav-item col-md-1 col-sm-1">
+                <p class="nav-item col-md-1 col-sm-1 mb-2">
                   <%= link_to "ItemList", items_path %>
                 </p>
-                <p class="nav-item col-md-1 col-sm-1">
+                <p class="nav-item col-md-1 col-sm-1 mb-2">
                   <%= link_to "PostList", post_images_path %>
                 </p>
-                <p class="nav-item col-md-1 col-sm-1">
+                <p class="nav-item col-md-1 col-sm-1 mb-2">
                   <%= link_to "LogOut", destroy_user_session_path, method: :delete %>
                 </p>
-                <p class="nav-item col-md-7 col-sm-11">
+                <div class="nav-item col-md-12 col-sm-12 mt-3">
                   <%= form_with url: search_path, method: :get, local: :true do |f| %>
                     <%= f.select :range, options_for_select([['会員'], ['投稿']]) %>
                     <%= f.text_field :word, placeholder: "キーワード検索", class: "form-control" %>
                     <%= f.submit "検索", class: "btn btn-primary" %>
                   <% end %>
-                </p>
+                </div>
               </div>
               </div>
             </ul>
@@ -66,26 +66,26 @@
           <% elsif admin_signed_in? %>
             <ul class="navbar-nav ml-auto">
               <div class="form-inline text-right">
-                <p class="nav-item col-md-3"></p>
-                <p class="nav-item col-md-1 col-sm-1">
+
+                <p class="nav-item col-md-1 col-sm-1 mb-2">
                   <%= link_to "Top", admin_root_path %>
                 </p>
-                <p class="nav-item col-md-2 col-sm-1">
+                <p class="nav-item col-md-2 col-sm-1 mb-2">
                   <%= link_to "User List", admin_users_path %>
                 </p>
-                <p class="nav-item col-md-2 col-sm-1">
+                <p class="nav-item col-md-2 col-sm-1 mb-2">
                   <%= link_to "Post List", admin_post_images_path %>
                 </p>
-                <p class="nav-item col-md-2 col-sm-1">
+                <p class="nav-item col-md-2 col-sm-1 mb-2">
                   <%= link_to "Log Out", destroy_admin_session_path, method: :delete %>
                 </p>
-                <p class="nav-item col-md-4 col-sm-11">
+                <div class="nav-item col-md-12 col-sm-12 mt-3">
                   <%= form_with url: admin_search_path, method: :get, local: :true do |f| %>
                     <%= f.select :range, options_for_select([['会員'], ['投稿']]) %>
                     <%= f.text_field :word, placeholder: "キーワード検索", class: "form-control" %>
                     <%= f.submit "検索", class: "btn btn-primary" %>
                   <% end %>
-                </p>
+                </div>
               </div>
             </ul>
             <% else %>
@@ -94,13 +94,13 @@
                 <p class="nav-item col-md-4 col-sm-10">
                   <%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, class: "btn btn-secondary btn-sm btn-block mb-3 sign_in", method: :post %>
                 </p>
-                <p class="nav-item col-md-1 col-sm-1">
+                <p class="nav-item col-md-1 col-sm-1 mb-2">
                   <%= link_to "Top", root_path %>
                 </p>
-                <p class="nav-item col-md-3 col-sm-1">
+                <p class="nav-item col-md-3 col-sm-1 mb-2">
                   <%= link_to "Sign Up", new_user_registration_path %>
                 </p>
-                <p class="nav-item col-md-2 col-sm-1">
+                <p class="nav-item col-md-2 col-sm-1 mb-2">
                   <%= link_to "Log In", new_user_session_path %>
                 </p>
               </div>

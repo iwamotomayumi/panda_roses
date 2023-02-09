@@ -30,7 +30,8 @@
 - ハンドメイド作品の投稿などをする時。
 
 >### 🐼サイトURL🌹
-http://pandaroses.com/  
+会員側　　http://pandaroses.com/  
+管理者側　http://pandaroses.com/admin/sign_in
 
 作品の閲覧に関しましては、URLに遷移後のトップページ上の『ゲストログイン』をクリックしていただくと簡単ログインができます。
 
@@ -66,7 +67,7 @@ https://docs.google.com/spreadsheets/d/1TrsE2YJyeR5ztQ1w0qjBtdpUOImQ1Zk1zStROd1l
 
 >## 🐼開発環境🌹
 - OS：Linux(CentOS)
-- 言語：HTML,SCSS,JavaScript,Ruby,SQL
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
 - フレームワーク：Ruby on Rails, Bootstrap
 - JSライブラリ：device,jQuery,slickr
 - IDE：Cloud9
