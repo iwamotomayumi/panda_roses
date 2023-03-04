@@ -1,5 +1,6 @@
 class Public::PostImagesController < ApplicationController
   before_action :authenticate_user!
+  before_action :is_matching_login_user, only: [:edit, :update]
 
   def index
     post_images = PostImage.published.includes(:favorited_users).sort {|a,b| b.favorited_users.size <=> a.favorited_users.size}
