@@ -1,6 +1,6 @@
 class Public::PostImagesController < ApplicationController
   before_action :authenticate_user!
-  before_action :is_matching_login_user, only: [:edit, :update]
+  before_action :is_matching_login_user, only: [:edit, :update, :destroy]
 
   def index
     @post_images = PostImage.published.left_joins(:favorites).group(:id).order("count(favorites.post_image_id) desc").page(params[:page]).per(10)
@@ -61,8 +61,8 @@ class Public::PostImagesController < ApplicationController
   end
 
   def is_matching_login_user
-    user_id = params[:id].to_i
-    unless user_id == current_user.id
+    @post_image = PostImage.find(params[:id])
+    unless @post_image.user == current_user
       redirect_to post_images_path
     end
   end
