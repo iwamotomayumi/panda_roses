@@ -3,8 +3,7 @@ class Public::PostImagesController < ApplicationController
   before_action :is_matching_login_user, only: [:edit, :update]
 
   def index
-    post_images = PostImage.published.includes(:favorited_users).sort {|a,b| b.favorited_users.size <=> a.favorited_users.size}
-    @post_images = Kaminari.paginate_array(post_images).page(params[:page]).per(10)
+    @post_images = PostImage.published.left_joins(:favorites).group(:id).order("count(favorites.post_image_id) desc").page(params[:page]).per(10)
   end
 
   def new
@@ -61,6 +60,12 @@ class Public::PostImagesController < ApplicationController
     params.require(:post_image).permit(:title, :caption, :image, :is_published_flag)
   end
 
+  def is_matching_login_user
+    user_id = params[:id].to_i
+    unless user_id == current_user.id
+      redirect_to post_images_path
+    end
+  end
 
 end
 
