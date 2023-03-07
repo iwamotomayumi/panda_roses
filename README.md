@@ -4,7 +4,7 @@
 ---
 
 <img width="1161" alt="panda_roses商品画像" src="https://user-images.githubusercontent.com/114344586/217709442-dae7ba00-63e4-4cb9-994e-daab0e13affc.png">
-<img width="1208" alt="panda_roses投稿画像" src="https://user-images.githubusercontent.com/114344586/217706135-149a56e5-663a-4901-9b27-9eb730acc57f.png">
+<img width="1155" alt="panda_rosesマイページ" src="https://user-images.githubusercontent.com/114344586/223428193-465f5e2c-4e84-42e6-9a3f-6d6d4b07a1f6.png">
 
 >## 🐼サイト概要🌹
 リースやブーケ、アクセサリーやキャンドルなどのハンドメイドのお店*PandaRoses*のSNSサイトです。  
@@ -69,11 +69,11 @@ https://docs.google.com/spreadsheets/d/1TrsE2YJyeR5ztQ1w0qjBtdpUOImQ1Zk1zStROd1l
 
 
 >## 🐼開発環境🌹
-- OS：Linux(CentOS)
+- OS：Amazon Linux 2
 - 言語：HTML,CSS,JavaScript,Ruby,SQL
 - フレームワーク：Ruby on Rails, Bootstrap
 - JSライブラリ：device,jQuery,slickr
-- IDE：Cloud9
+- IDE：Cloud9,EC2
 
 >## 🐼デプロイ🌹
 - AWS
