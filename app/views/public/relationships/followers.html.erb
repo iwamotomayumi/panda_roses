@@ -1,6 +1,6 @@
 </br>
 <div class="container">
-  <h4 style="color: #800000">🌹Followers List🌹︎</h4>&emsp;<%= link_to "<Back", user_path(@user.id) %>︎</h4>
+  <h4 style="color: #800000">🌹<%= @user.last_name %><%= @user.first_name %>さんのFollowers List🌹︎</h4>&emsp;<%= link_to "<Back", user_path(@user.id) %>︎</h4>
 
   <% if @users.exists? %>
     <%= render '/public/users/user_list', users: @users %>
