@@ -4,8 +4,8 @@
       <%= link_to admin_post_image_path(post_image.id) do %>
         <%= image_tag post_image.get_image, size: "250x150" %>
       <% end %>
-      </br>
-      </br>
+      <br>
+      <br>
       <div class="post_images-comment">
         <span>
           <%= image_tag post_image.user.get_profile_image, size: "50x50", class:"rounded-circle" %>
@@ -20,8 +20,8 @@
             <%= post_image.user.last_name %><%= post_image.user.first_name %>
           <% end %>
         </span>
-        <span class="item-title", style="font-size:12px"><%= post_image.created_at.strftime('%Y/%m/%d') %></span></br>
-        <span class="item-title", style="font-size:12px"><%= post_image.title %></span></br>
+        <span class="item-title", style="font-size:12px"><%= post_image.created_at.strftime('%Y/%m/%d') %></span><br>
+        <span class="item-title", style="font-size:12px"><%= post_image.title %></span><br>
         <span class="item-title", style="font-size:12px"><%= post_image.caption %></span>
       </div>
     </div>
