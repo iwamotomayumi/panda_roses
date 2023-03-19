@@ -1,53 +1,57 @@
 <%= render 'layouts/error_messages', resource: @user %>
 <br>
-  <div class="container">
+<div class="container">
   <div class="row-12">
     <div class="px-3 mr-auto">
-    <div class="col-md-5 col-sm-10" >
-      <h4 style="color: #800000">🌹User Edit🌹</h4>
-    </div>
+      <div class="col-md-5 col-sm-10" >
+        <h4 style="color: #800000">🌹User Edit🌹</h4>
+      </div>
 
-    <%= form_with model: @user, url: user_path(@user.id), method: :patch do |f| %>
-      <table class="lb-5">
-        <tr>
-          <td width="30%" height="40">会員画像</td>
-          <td><%= f.file_field :profile_image, accept: "image/*" %></td>
-        </tr>
+      <%= form_with model: @user, url: user_path(@user.id), method: :patch do |f| %>
+        <table class="lb-5">
+          <tr>
+            <td width="30%" height="40">会員画像</td>
+            <td><%= f.file_field :profile_image, accept: "image/*" %></td>
+          </tr>
 
-        <tr>
-          <td class="align="left" valign="top"" width="30%" height="40">プロフィール</td>
-          <td><%= f.text_area :introduction, placeholder: "プロフィールを入力してください（50文字以内）", :size=>"35x7" %></td>
-        </tr>
+          <tr>
+            <td class="align="left" valign="top"" width="30%" height="40">プロフィール</td>
+            <td><%= f.text_area :introduction, placeholder: "プロフィールを入力してください（50文字以内）", :size=>"35x7" %></td>
+          </tr>
 
-        <tr>
-          <td width="30%" height="40">氏名</td>
-          <td><%= f.text_field :last_name %>&nbsp;&nbsp;&nbsp;&nbsp;
-              <%= f.text_field :first_name %></td>
-        </tr>
+          <tr>
+            <td width="30%" height="40">氏名</td>
+            <td>
+              <%= f.text_field :last_name %>&nbsp;&nbsp;&nbsp;&nbsp;
+              <%= f.text_field :first_name %>
+            </td>
+          </tr>
 
-        <tr>
-          <td width="30%" height="40">フリガナ</td>
-          <td><%= f.text_field :last_name_kana %>&nbsp;&nbsp;&nbsp;&nbsp;
-              <%= f.text_field :first_name_kana %></td>
-        </tr>
+          <tr>
+            <td width="30%" height="40">フリガナ</td>
+            <td>
+              <%= f.text_field :last_name_kana %>&nbsp;&nbsp;&nbsp;&nbsp;
+              <%= f.text_field :first_name_kana %>
+            </td>
+          </tr>
 
-        <tr>
-          <td width="30%" height="40">メールアドレス</td>
-          <td><%= f.text_field :email %></td>
-        </tr>
+          <tr>
+            <td width="30%" height="40">メールアドレス</td>
+            <td><%= f.text_field :email %></td>
+          </tr>
 
-        <tr>
-          <td width="30%" height="40">電話番号</td>
-          <td><%= f.text_field :telephone_number %></td>
-        </tr>
+          <tr>
+            <td width="30%" height="40">電話番号</td>
+            <td><%= f.text_field :telephone_number %></td>
+          </tr>
 
-        <tr>
-          <td width="30%" height="70"><%= link_to "<Back", user_path(@user.id) %></td>
-          <td><%= f.submit "編集内容を保存", class:"btn btn-success" %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <tr>
+            <td width="30%" height="70"><%= link_to "<Back", user_path(@user.id) %></td>
+            <td><%= f.submit "編集内容を保存", class:"btn btn-success" %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               <%= link_to "退会", users_unsubscribe_path, class:"btn btn-danger" %></td>
-        </tr>
-      </table>
-    <% end %>
-   </div>
+          </tr>
+        </table>
+      <% end %>
+    </div>
   </div>
- </div>
+</div>

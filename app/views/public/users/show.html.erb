@@ -24,7 +24,7 @@
               <% end %>
             <% end %>
           </span>
-          </br>
+          <br>
           <span>
             <% if @user.introduction %>
               <%= safe_join(@user.introduction.split("\n"),tag(:br)) %>
@@ -40,8 +40,8 @@
           <% end %>
         <% end %>
 
-        </br>
-        </br>
+        <br>
+        <br>
         <% if @user == current_user %>
           <h4 style="color: #800000">🌹NewPost🌹</h4>
            <%= form_with model: @new_post_image, url: '/post_images', method: :post  do |f| %>
@@ -82,7 +82,7 @@
           <%= link_to post_image_path(post_image.id) do %>
             <%= image_tag post_image.get_image, size: "250x150" %>
           <% end %>
-          </br>
+          <br>
           &emsp;
           <% if post_image.favorited_by?(current_user) %>
             <%= link_to post_image_favorites_path(post_image), method: :delete do %>
