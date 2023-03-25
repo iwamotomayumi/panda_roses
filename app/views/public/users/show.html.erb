@@ -80,7 +80,7 @@
         <% @post_images.each do |post_image| %>
           <span class="post_images-box1 font-weight-bold">
           <%= link_to post_image_path(post_image.id) do %>
-            <%= image_tag post_image.get_image, size: "250x150" %>
+            <%= image_tag post_image.get_image, class: "index-img" %>
           <% end %>
           <br>
           &emsp;
